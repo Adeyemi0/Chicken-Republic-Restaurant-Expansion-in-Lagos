@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2dc559148310d2acb4094069263d418a {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+<div style="position: fixed; bottom: 50px; left: 50px; width: 150px; height: 120px; 
+            border: 2px solid grey; z-index: 9999; font-size: 12px; background-color: white;
+            padding: 10px;">
+    <b>Legend</b><br>
+    <i class="fa fa-circle" style="color:green"></i> &nbsp; <30m<br>
+    <i class="fa fa-circle" style="color:yellow"></i> &nbsp; 30–70m<br>
+    <i class="fa fa-circle" style="color:red"></i> &nbsp; >70m
+</div>
+    
+<div style="position: fixed; top: 10px; left: 50%; transform: translateX(-50%); z-index: 9999; 
+            font-size: 20px; font-weight: bold; color: black; background-color: white; padding: 10px;">
+    Chicken Republic Branches in Lagos: Proximity to Roads
+</div>
+    
+            <div class="folium-map" id="map_2dc559148310d2acb4094069263d418a" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2dc559148310d2acb4094069263d418a = L.map(
+                "map_2dc559148310d2acb4094069263d418a",
+                {
+                    center: [6.540322549999998, 3.3916056648148154],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_b53a269ccb32407f54ca854a0867ced8 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_b53a269ccb32407f54ca854a0867ced8.addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            var circle_marker_a386e7825dfdab0d9b715fa6814f02bb = L.circleMarker(
+                [6.6187638, 3.3002376],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_a386e7825dfdab0d9b715fa6814f02bb.bindTooltip(
+                `<div>
+                     Location: Abule Egba<br>Distance to Road: 1.4378748819701912m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0a4efa6c708a11b45c23edb8dafb2c1e = L.circleMarker(
+                [6.440137, 3.4555492],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_0a4efa6c708a11b45c23edb8dafb2c1e.bindTooltip(
+                `<div>
+                     Location: Admiralty Way, Lekki<br>Distance to Road: 32.048882475617m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0eba8c37f3ef9be47c23cfd007470ffc = L.circleMarker(
+                [6.6272796, 3.3541477],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_0eba8c37f3ef9be47c23cfd007470ffc.bindTooltip(
+                `<div>
+                     Location: Agidingbi<br>Distance to Road: 29.952939576690042m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_87fca72413fc8a3e86e6310cfdbed7a5 = L.circleMarker(
+                [6.4958989, 3.3451427],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_87fca72413fc8a3e86e6310cfdbed7a5.bindTooltip(
+                `<div>
+                     Location: Aguda, Surulere<br>Distance to Road: 11.132732179013349m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5267c49670e8af1045f8bd232259baf7 = L.circleMarker(
+                [6.4422755, 3.5157276],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_5267c49670e8af1045f8bd232259baf7.bindTooltip(
+                `<div>
+                     Location: Agungi<br>Distance to Road: 30.997085170873092m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_88b31d419d3528f96ebe9ffa45a9672a = L.circleMarker(
+                [6.5042586, 3.5817931],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_88b31d419d3528f96ebe9ffa45a9672a.bindTooltip(
+                `<div>
+                     Location: Ajah<br>Distance to Road: 4.995442853284247m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_75a9414fd476e075bcb25e999fd76a05 = L.circleMarker(
+                [6.431321, 3.4321481],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_75a9414fd476e075bcb25e999fd76a05.bindTooltip(
+                `<div>
+                     Location: Ajose Adeogun<br>Distance to Road: 7.924795076893405m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b0c90b3c8953be4d57383cc8a4d35b38 = L.circleMarker(
+                [6.5268743, 3.3862574],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_b0c90b3c8953be4d57383cc8a4d35b38.bindTooltip(
+                `<div>
+                     Location: Akoka<br>Distance to Road: 7.0893206433613205m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d2dd37ac8166b37f08ac8e3f11891802 = L.circleMarker(
+                [6.6025345, 3.307035],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_d2dd37ac8166b37f08ac8e3f11891802.bindTooltip(
+                `<div>
+                     Location: Akowonjo<br>Distance to Road: 7.024031865851917m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e231f897b2843ca3b8ee626321371919 = L.circleMarker(
+                [6.5909029, 3.3918106],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_e231f897b2843ca3b8ee626321371919.bindTooltip(
+                `<div>
+                     Location: Alapere, Ketu<br>Distance to Road: 28.5134587302036m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_adfdb17bbd17281214a138ec8ad5afed = L.circleMarker(
+                [6.6110445, 3.294671],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_adfdb17bbd17281214a138ec8ad5afed.bindTooltip(
+                `<div>
+                     Location: Alimosho<br>Distance to Road: 7.199214772685498m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8360d10580cb4e4b08314c23897b07f1 = L.circleMarker(
+                [6.4441524, 3.4239269],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_8360d10580cb4e4b08314c23897b07f1.bindTooltip(
+                `<div>
+                     Location: Awolowo I<br>Distance to Road: 30.747228756108985m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e6a7381c15bc96b98895069bf9a3b28c = L.circleMarker(
+                [6.5003762, 3.5970195],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_e6a7381c15bc96b98895069bf9a3b28c.bindTooltip(
+                `<div>
+                     Location: Badore, Ajah<br>Distance to Road: 1.501176924911788m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_25144a6554e4e81437b2006aa663b572 = L.circleMarker(
+                [6.4901864, 3.3556715],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_25144a6554e4e81437b2006aa663b572.bindTooltip(
+                `<div>
+                     Location: Bode Thomas<br>Distance to Road: 26.9537854114866m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f5c9291b21c4335c76a876b3bda72953 = L.circleMarker(
+                [6.5807286, 3.348047],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_f5c9291b21c4335c76a876b3bda72953.bindTooltip(
+                `<div>
+                     Location: Con Oil, Ikeja<br>Distance to Road: 44.33615822626208m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_39714783ce6037e13cbcece7bf278437 = L.circleMarker(
+                [6.553135, 3.3912479],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_39714783ce6037e13cbcece7bf278437.bindTooltip(
+                `<div>
+                     Location: Diya, Gbagada<br>Distance to Road: 23.714628772956605m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0fccdaa28cdeb4bd0702ce9af80dcb6c = L.circleMarker(
+                [6.5065533, 3.3750592],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_0fccdaa28cdeb4bd0702ce9af80dcb6c.bindTooltip(
+                `<div>
+                     Location: Domino E-Centre<br>Distance to Road: 12.270066371780514m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_83b3508874d77b70d237c5df9cd7fc8b = L.circleMarker(
+                [6.5326425, 3.306756],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_83b3508874d77b70d237c5df9cd7fc8b.bindTooltip(
+                `<div>
+                     Location: Egbe Road, Ejigbo<br>Distance to Road: 13.93891910238894m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d5dfe1c90818c85a69f9facbeb3545ab = L.circleMarker(
+                [6.6417437, 3.2872394],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_d5dfe1c90818c85a69f9facbeb3545ab.bindTooltip(
+                `<div>
+                     Location: Ekoro<br>Distance to Road: 9.115670124421236m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c5bb4b4e080f63f6f624aca9f48db55c = L.circleMarker(
+                [6.4437609, 3.4642795],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_c5bb4b4e080f63f6f624aca9f48db55c.bindTooltip(
+                `<div>
+                     Location: Entourage Mall<br>Distance to Road: 17.84253415988861m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5bd6691e10903885992aedb420338888 = L.circleMarker(
+                [6.4372562, 3.507993],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_5bd6691e10903885992aedb420338888.bindTooltip(
+                `<div>
+                     Location: Eterna, Lekki Jakande Roundabout<br>Distance to Road: 30.107140162237368m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_37a171f31620162c3680b0e6bb171312 = L.circleMarker(
+                [6.4664428, 3.2838087],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_37a171f31620162c3680b0e6bb171312.bindTooltip(
+                `<div>
+                     Location: Festac<br>Distance to Road: 5.367965442984054m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f767a3b7bbb9ab43879e015d7d65b675 = L.circleMarker(
+                [6.4377874, 3.4816702],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_f767a3b7bbb9ab43879e015d7d65b675.bindTooltip(
+                `<div>
+                     Location: Freedom Way, Lekki<br>Distance to Road: 0.8230373311948765m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_056b6f0adf6a5568d30fd1b7447c32a5 = L.circleMarker(
+                [6.548357, 3.3875364],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_056b6f0adf6a5568d30fd1b7447c32a5.bindTooltip(
+                `<div>
+                     Location: Gbagada<br>Distance to Road: 31.989299605853848m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_de3eaf274b48cede45548651c874def8 = L.circleMarker(
+                [6.689923, 3.5124039],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_de3eaf274b48cede45548651c874def8.bindTooltip(
+                `<div>
+                     Location: Heyden Ibafo<br>Distance to Road: 579.3282758756271m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a61260185e90b9aabedb8a5cc23e3c72 = L.circleMarker(
+                [6.5831874, 3.2836513],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_a61260185e90b9aabedb8a5cc23e3c72.bindTooltip(
+                `<div>
+                     Location: Idimu<br>Distance to Road: 12.595879336014375m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_da208b480085a91bc42b65bfc57e75b6 = L.circleMarker(
+                [6.6143564, 3.3581327],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_da208b480085a91bc42b65bfc57e75b6.bindTooltip(
+                `<div>
+                     Location: Ikeja City Mall<br>Distance to Road: 99.53605371263261m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ab1caff1725c19730a629c38d426c03b = L.circleMarker(
+                [6.6026514, 3.4881414],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_ab1caff1725c19730a629c38d426c03b.bindTooltip(
+                `<div>
+                     Location: Ikorodu<br>Distance to Road: 3.148746273663902m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_337a70d3bb1670bf70409cd73459ec71 = L.circleMarker(
+                [6.5571294, 3.2699058],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_337a70d3bb1670bf70409cd73459ec71.bindTooltip(
+                `<div>
+                     Location: Ikotun-Idumu Road<br>Distance to Road: 2.4743908286485268m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b9b2c183ed7e9b6ffd291233ba990f42 = L.circleMarker(
+                [6.5468252, 3.362263],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_b9b2c183ed7e9b6ffd291233ba990f42.bindTooltip(
+                `<div>
+                     Location: Ilupeju<br>Distance to Road: 14.953234814158483m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d1c989032687981110ea533f1e8c14d7 = L.circleMarker(
+                [6.6050072, 3.2729508],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_d1c989032687981110ea533f1e8c14d7.bindTooltip(
+                `<div>
+                     Location: Ipaja-Ayobo Road<br>Distance to Road: 13.805963925706065m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_89bd3ba925c9ed7f6174c2390adb064f = L.circleMarker(
+                [6.5252506, 3.3221686],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_89bd3ba925c9ed7f6174c2390adb064f.bindTooltip(
+                `<div>
+                     Location: Ire-Akari<br>Distance to Road: 3.8155942335223956m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_55395c134291c5c07305146e1110fd77 = L.circleMarker(
+                [6.6564303, 3.4761491],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_55395c134291c5c07305146e1110fd77.bindTooltip(
+                `<div>
+                     Location: Isawo Road<br>Distance to Road: 5.074176994709704m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7fecc4864eb1e6401fd5cc856644cfdc = L.circleMarker(
+                [6.5187145, 3.3678912],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_7fecc4864eb1e6401fd5cc856644cfdc.bindTooltip(
+                `<div>
+                     Location: Jibowu<br>Distance to Road: 1.6647023507700847m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9cb0e054e012c8119a38574b5ddb8d9c = L.circleMarker(
+                [6.5864624, 3.3545254],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_9cb0e054e012c8119a38574b5ddb8d9c.bindTooltip(
+                `<div>
+                     Location: Joel Ogunnaike<br>Distance to Road: 11.9859457044061m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9795d2d03dc3868ccda02d6bbb4fc818 = L.circleMarker(
+                [6.6117447, 3.3694419],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_9795d2d03dc3868ccda02d6bbb4fc818.bindTooltip(
+                `<div>
+                     Location: Magodo<br>Distance to Road: 4.225927293599739m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3a24d912e019e357f32c9ba81f8b661a = L.circleMarker(
+                [6.4319054, 3.3798359],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_3a24d912e019e357f32c9ba81f8b661a.bindTooltip(
+                `<div>
+                     Location: Marina<br>Distance to Road: 768.6389848792537m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7284aed9929aee76dcea2b43bdb2024b = L.circleMarker(
+                [6.5900859, 3.3319794],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_7284aed9929aee76dcea2b43bdb2024b.bindTooltip(
+                `<div>
+                     Location: MM2 Lagos<br>Distance to Road: 244.32534761818061m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2de16e713de95b9dcfefc5c74bcbd99f = L.circleMarker(
+                [6.5795773, 3.3226101],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_2de16e713de95b9dcfefc5c74bcbd99f.bindTooltip(
+                `<div>
+                     Location: MMIA<br>Distance to Road: 215.98593497688327m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bff2d196650d98c3b08b2a3123f3e3e1 = L.circleMarker(
+                [6.6289279, 3.3377172],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_bff2d196650d98c3b08b2a3123f3e3e1.bindTooltip(
+                `<div>
+                     Location: Mobil Ogba<br>Distance to Road: 8.575725791060929m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_51d4b4f2199123eaf25c7fe491ed2b30 = L.circleMarker(
+                [6.601257, 3.339058],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_51d4b4f2199123eaf25c7fe491ed2b30.bindTooltip(
+                `<div>
+                     Location: Oba Akran<br>Distance to Road: 32.7585447344361m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6b8b4a7ae4b1b3c14a424876435e3284 = L.circleMarker(
+                [6.5753283, 3.3910974],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_6b8b4a7ae4b1b3c14a424876435e3284.bindTooltip(
+                `<div>
+                     Location: Ogudu<br>Distance to Road: 13.054910369651477m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_724dd32d63dd08859d3b2dc9d19eaf16 = L.circleMarker(
+                [6.5097574, 3.3525986],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_724dd32d63dd08859d3b2dc9d19eaf16.bindTooltip(
+                `<div>
+                     Location: Ogunlana Drive<br>Distance to Road: 12.571024449814937m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_13e54fed12af768150d08f34ecbaa88d = L.circleMarker(
+                [6.5290034, 3.3112557],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_13e54fed12af768150d08f34ecbaa88d.bindTooltip(
+                `<div>
+                     Location: Oke Afa<br>Distance to Road: 7.863722054820063m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f9d239485ab9e269149fbc5bbc3e1f1d = L.circleMarker(
+                [6.5276571, 3.3175587],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_f9d239485ab9e269149fbc5bbc3e1f1d.bindTooltip(
+                `<div>
+                     Location: Okota<br>Distance to Road: 27.75904889774605m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_36c95a3c4d5852dfb6370eedc0c0d927 = L.circleMarker(
+                [6.6351156, 3.3603044],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_36c95a3c4d5852dfb6370eedc0c0d927.bindTooltip(
+                `<div>
+                     Location: Omole<br>Distance to Road: 8.07730098510848m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bf8d46e006b2eba2073b60bb242271d2 = L.circleMarker(
+                [6.4290982, 3.4238032],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_bf8d46e006b2eba2073b60bb242271d2.bindTooltip(
+                `<div>
+                     Location: Oniru<br>Distance to Road: 7.130790440206957m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c53771c94d8972d6617acd2b5324dfad = L.circleMarker(
+                [6.5916388, 3.3598123],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_c53771c94d8972d6617acd2b5324dfad.bindTooltip(
+                `<div>
+                     Location: Opebi<br>Distance to Road: 24.90663604494872m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e27dc93daa2de67e62671eac8a1f51f1 = L.circleMarker(
+                [6.5482678, 3.3321037],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_e27dc93daa2de67e62671eac8a1f51f1.bindTooltip(
+                `<div>
+                     Location: Osolo Way<br>Distance to Road: 15.020391517768058m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7a65dfc74c6fde86eec1772ec6feb11e = L.circleMarker(
+                [6.5414843, 3.3677745],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_7a65dfc74c6fde86eec1772ec6feb11e.bindTooltip(
+                `<div>
+                     Location: Palmgrove Shipeolu<br>Distance to Road: 31.41333096043695m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_429db9adf39dadee4ae5dc1f75f4b37d = L.circleMarker(
+                [6.4732897, 3.6356724],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_429db9adf39dadee4ae5dc1f75f4b37d.bindTooltip(
+                `<div>
+                     Location: Sky Mall Sangotedo<br>Distance to Road: 20.892910331372963m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4a279f8330c6a46cb0be3c5ada44f768 = L.circleMarker(
+                [6.508835, 3.3681903],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_4a279f8330c6a46cb0be3c5ada44f768.bindTooltip(
+                `<div>
+                     Location: Tejuosho<br>Distance to Road: 16.675878087258944m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_daf737eb280177fd6dde0110ddae9476 = L.circleMarker(
+                [6.4352302, 3.4985608],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_daf737eb280177fd6dde0110ddae9476.bindTooltip(
+                `<div>
+                     Location: Total, Lekki<br>Distance to Road: 6.30591034832161m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_97e822d922165c1e6826169dc80fa680 = L.circleMarker(
+                [6.4688629, 3.704373],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_2dc559148310d2acb4094069263d418a);
+        
+    
+            circle_marker_97e822d922165c1e6826169dc80fa680.bindTooltip(
+                `<div>
+                     Location: VGC<br>Distance to Road: 0.0289470039416542m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
