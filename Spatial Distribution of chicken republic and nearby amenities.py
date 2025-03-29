@@ -12,4 +12,4 @@ def main():
     components.html(html_string, width=800, height=600, scrolling=True) #adjust width and height as needed.
 
 if __name__ == "__main__":
-    main()￼Enter
+    main()
