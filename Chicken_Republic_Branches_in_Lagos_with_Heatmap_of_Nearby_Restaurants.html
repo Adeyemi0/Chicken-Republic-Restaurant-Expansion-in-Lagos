@@ -1,0 +1,1896 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f3802bf56901114e9db707a4941773ed {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+<div style="position: fixed; bottom: 50px; left: 50px; width: 150px; height: 100px; 
+            background: linear-gradient(to top, rgba(255,0,0,1), rgba(255,255,0,1), rgba(0,255,0,1));
+            border: 2px solid black; z-index: 9999;">
+    <div style="position: absolute; top: -20px; text-align: center; width: 100%; font-weight: bold;">Heatmap Intensity</div>
+    <div style="position: absolute; bottom: -20px; text-align: center; width: 100%;">High</div>
+    <div style="position: absolute; top: -40px; text-align: center; width: 100%;">Low</div>
+</div>
+    
+<div style="position: fixed; top: 10px; left: 50%; transform: translateX(-50%); z-index: 9999; 
+            font-size: 20px; font-weight: bold; color: black; background-color: white; padding: 10px;">
+    Chicken Republic Branches in Lagos with Heatmap of Nearby Restaurants
+</div>
+    
+            <div class="folium-map" id="map_f3802bf56901114e9db707a4941773ed" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f3802bf56901114e9db707a4941773ed = L.map(
+                "map_f3802bf56901114e9db707a4941773ed",
+                {
+                    center: [6.540322549999998, 3.3916056648148154],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7998f38898ea320a8324a267a1444eea = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_7998f38898ea320a8324a267a1444eea.addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+            var circle_marker_e758c9813760a51f46b80fc36d9443ab = L.circleMarker(
+                [6.6187638, 3.3002376],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_e50f712f78f26f0fad189b1c17872231 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cdb1272f6f0c9e2a1e6b26fda1af2869 = $(`<div id="html_cdb1272f6f0c9e2a1e6b26fda1af2869" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Abule Egba<br>     <b>Distance to Road:</b> 1.4 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 25     </div>`)[0];
+                popup_e50f712f78f26f0fad189b1c17872231.setContent(html_cdb1272f6f0c9e2a1e6b26fda1af2869);
+            
+        
+
+        circle_marker_e758c9813760a51f46b80fc36d9443ab.bindPopup(popup_e50f712f78f26f0fad189b1c17872231)
+        ;
+
+        
+    
+    
+            circle_marker_e758c9813760a51f46b80fc36d9443ab.bindTooltip(
+                `<div>
+                     Location: Abule Egba<br>Distance to Road: 1.4m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_290b71cde1e5799916e71d638785f11a = L.circleMarker(
+                [6.440137, 3.4555492],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_de888985a757d097c0902c6d4751ada8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_db04b1ac9d8ad3eafa593284da879e79 = $(`<div id="html_db04b1ac9d8ad3eafa593284da879e79" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Admiralty Way, Lekki<br>     <b>Distance to Road:</b> 32.0 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 19     </div>`)[0];
+                popup_de888985a757d097c0902c6d4751ada8.setContent(html_db04b1ac9d8ad3eafa593284da879e79);
+            
+        
+
+        circle_marker_290b71cde1e5799916e71d638785f11a.bindPopup(popup_de888985a757d097c0902c6d4751ada8)
+        ;
+
+        
+    
+    
+            circle_marker_290b71cde1e5799916e71d638785f11a.bindTooltip(
+                `<div>
+                     Location: Admiralty Way, Lekki<br>Distance to Road: 32.0m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_131b169d52d3926fe2e0c343e7d180da = L.circleMarker(
+                [6.6272796, 3.3541477],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_beefc769ae1d9e07c7da0a16956e2684 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e5ebe7f510d094d02d6b49e5cfa7a06a = $(`<div id="html_e5ebe7f510d094d02d6b49e5cfa7a06a" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Agidingbi<br>     <b>Distance to Road:</b> 30.0 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 20     </div>`)[0];
+                popup_beefc769ae1d9e07c7da0a16956e2684.setContent(html_e5ebe7f510d094d02d6b49e5cfa7a06a);
+            
+        
+
+        circle_marker_131b169d52d3926fe2e0c343e7d180da.bindPopup(popup_beefc769ae1d9e07c7da0a16956e2684)
+        ;
+
+        
+    
+    
+            circle_marker_131b169d52d3926fe2e0c343e7d180da.bindTooltip(
+                `<div>
+                     Location: Agidingbi<br>Distance to Road: 30.0m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e900aa5b12a38f7c0f40cfdb22ceac05 = L.circleMarker(
+                [6.4958989, 3.3451427],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_9a1bda0284a8982c987c725f8224a001 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_643afe1d12c2606104878ff3e025ce8f = $(`<div id="html_643afe1d12c2606104878ff3e025ce8f" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Aguda, Surulere<br>     <b>Distance to Road:</b> 11.1 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 15     </div>`)[0];
+                popup_9a1bda0284a8982c987c725f8224a001.setContent(html_643afe1d12c2606104878ff3e025ce8f);
+            
+        
+
+        circle_marker_e900aa5b12a38f7c0f40cfdb22ceac05.bindPopup(popup_9a1bda0284a8982c987c725f8224a001)
+        ;
+
+        
+    
+    
+            circle_marker_e900aa5b12a38f7c0f40cfdb22ceac05.bindTooltip(
+                `<div>
+                     Location: Aguda, Surulere<br>Distance to Road: 11.1m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_32d39e29c6cbdf87a10377878d731e4b = L.circleMarker(
+                [6.4422755, 3.5157276],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_3a90b5a66d7a1a0914f0256403ef4f7b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_16cdd1950f13535e74b79a5409c22340 = $(`<div id="html_16cdd1950f13535e74b79a5409c22340" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Agungi<br>     <b>Distance to Road:</b> 31.0 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 25     </div>`)[0];
+                popup_3a90b5a66d7a1a0914f0256403ef4f7b.setContent(html_16cdd1950f13535e74b79a5409c22340);
+            
+        
+
+        circle_marker_32d39e29c6cbdf87a10377878d731e4b.bindPopup(popup_3a90b5a66d7a1a0914f0256403ef4f7b)
+        ;
+
+        
+    
+    
+            circle_marker_32d39e29c6cbdf87a10377878d731e4b.bindTooltip(
+                `<div>
+                     Location: Agungi<br>Distance to Road: 31.0m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_48704f613418d350a7ffb115b3594b67 = L.circleMarker(
+                [6.5042586, 3.5817931],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_1e50568d17a45a2372189e1bc9dd237f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9cb67ea33ab0dfd4a174255e2cc8f4f8 = $(`<div id="html_9cb67ea33ab0dfd4a174255e2cc8f4f8" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Ajah<br>     <b>Distance to Road:</b> 5.0 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 22     </div>`)[0];
+                popup_1e50568d17a45a2372189e1bc9dd237f.setContent(html_9cb67ea33ab0dfd4a174255e2cc8f4f8);
+            
+        
+
+        circle_marker_48704f613418d350a7ffb115b3594b67.bindPopup(popup_1e50568d17a45a2372189e1bc9dd237f)
+        ;
+
+        
+    
+    
+            circle_marker_48704f613418d350a7ffb115b3594b67.bindTooltip(
+                `<div>
+                     Location: Ajah<br>Distance to Road: 5.0m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bb221235229dce454c1fb65f64415f0f = L.circleMarker(
+                [6.431321, 3.4321481],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_86870b787cdaa94e7cd6527a73e7be9a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fd56a838ab0ae3255a800944972269b8 = $(`<div id="html_fd56a838ab0ae3255a800944972269b8" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Ajose Adeogun<br>     <b>Distance to Road:</b> 7.9 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 30     </div>`)[0];
+                popup_86870b787cdaa94e7cd6527a73e7be9a.setContent(html_fd56a838ab0ae3255a800944972269b8);
+            
+        
+
+        circle_marker_bb221235229dce454c1fb65f64415f0f.bindPopup(popup_86870b787cdaa94e7cd6527a73e7be9a)
+        ;
+
+        
+    
+    
+            circle_marker_bb221235229dce454c1fb65f64415f0f.bindTooltip(
+                `<div>
+                     Location: Ajose Adeogun<br>Distance to Road: 7.9m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8bef3562bf10d4e1ca45a4fea94758f1 = L.circleMarker(
+                [6.5268743, 3.3862574],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_28ee4f901a649c50cf58e8d4cafbe167 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cb4b410767adac64c44faf49a842132b = $(`<div id="html_cb4b410767adac64c44faf49a842132b" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Akoka<br>     <b>Distance to Road:</b> 7.1 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 14     </div>`)[0];
+                popup_28ee4f901a649c50cf58e8d4cafbe167.setContent(html_cb4b410767adac64c44faf49a842132b);
+            
+        
+
+        circle_marker_8bef3562bf10d4e1ca45a4fea94758f1.bindPopup(popup_28ee4f901a649c50cf58e8d4cafbe167)
+        ;
+
+        
+    
+    
+            circle_marker_8bef3562bf10d4e1ca45a4fea94758f1.bindTooltip(
+                `<div>
+                     Location: Akoka<br>Distance to Road: 7.1m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c12e7ae56856507e1bda22b02bd48041 = L.circleMarker(
+                [6.6025345, 3.307035],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_084e999121b62acc235df036fd1bdb44 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4bef2a7de476ccc17ebd67035b9bbdc1 = $(`<div id="html_4bef2a7de476ccc17ebd67035b9bbdc1" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Akowonjo<br>     <b>Distance to Road:</b> 7.0 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 21     </div>`)[0];
+                popup_084e999121b62acc235df036fd1bdb44.setContent(html_4bef2a7de476ccc17ebd67035b9bbdc1);
+            
+        
+
+        circle_marker_c12e7ae56856507e1bda22b02bd48041.bindPopup(popup_084e999121b62acc235df036fd1bdb44)
+        ;
+
+        
+    
+    
+            circle_marker_c12e7ae56856507e1bda22b02bd48041.bindTooltip(
+                `<div>
+                     Location: Akowonjo<br>Distance to Road: 7.0m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c7f6d91da00ceb234916a31fc24cd599 = L.circleMarker(
+                [6.5909029, 3.3918106],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_3ee5e202240185219b6987d6ca419dc2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c86896f34ac040e0273c2e8346c6a289 = $(`<div id="html_c86896f34ac040e0273c2e8346c6a289" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Alapere, Ketu<br>     <b>Distance to Road:</b> 28.5 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 15     </div>`)[0];
+                popup_3ee5e202240185219b6987d6ca419dc2.setContent(html_c86896f34ac040e0273c2e8346c6a289);
+            
+        
+
+        circle_marker_c7f6d91da00ceb234916a31fc24cd599.bindPopup(popup_3ee5e202240185219b6987d6ca419dc2)
+        ;
+
+        
+    
+    
+            circle_marker_c7f6d91da00ceb234916a31fc24cd599.bindTooltip(
+                `<div>
+                     Location: Alapere, Ketu<br>Distance to Road: 28.5m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4415933ed38692dbb8702cda9bdfeeb2 = L.circleMarker(
+                [6.6110445, 3.294671],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_57758b767f6572302ceef2f36c0ef217 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_162110f086407dfff0c5b08865203906 = $(`<div id="html_162110f086407dfff0c5b08865203906" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Alimosho<br>     <b>Distance to Road:</b> 7.2 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 17     </div>`)[0];
+                popup_57758b767f6572302ceef2f36c0ef217.setContent(html_162110f086407dfff0c5b08865203906);
+            
+        
+
+        circle_marker_4415933ed38692dbb8702cda9bdfeeb2.bindPopup(popup_57758b767f6572302ceef2f36c0ef217)
+        ;
+
+        
+    
+    
+            circle_marker_4415933ed38692dbb8702cda9bdfeeb2.bindTooltip(
+                `<div>
+                     Location: Alimosho<br>Distance to Road: 7.2m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2d9141b768cd6fcd42fa6a3d7abac28e = L.circleMarker(
+                [6.4441524, 3.4239269],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_1b6a2b0db35e8cbf901b1f821b076687 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_25ebacf682aaf3055c09281b98cdd2df = $(`<div id="html_25ebacf682aaf3055c09281b98cdd2df" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Awolowo I<br>     <b>Distance to Road:</b> 30.7 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 11     </div>`)[0];
+                popup_1b6a2b0db35e8cbf901b1f821b076687.setContent(html_25ebacf682aaf3055c09281b98cdd2df);
+            
+        
+
+        circle_marker_2d9141b768cd6fcd42fa6a3d7abac28e.bindPopup(popup_1b6a2b0db35e8cbf901b1f821b076687)
+        ;
+
+        
+    
+    
+            circle_marker_2d9141b768cd6fcd42fa6a3d7abac28e.bindTooltip(
+                `<div>
+                     Location: Awolowo I<br>Distance to Road: 30.7m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c165b08c2c738f66679082f67d6bce8b = L.circleMarker(
+                [6.5003762, 3.5970195],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_e3a21b3e1f95e79f9c92ab9ec48bc43c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c1cb1eb5db57a766c93df9c25551f600 = $(`<div id="html_c1cb1eb5db57a766c93df9c25551f600" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Badore, Ajah<br>     <b>Distance to Road:</b> 1.5 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 17     </div>`)[0];
+                popup_e3a21b3e1f95e79f9c92ab9ec48bc43c.setContent(html_c1cb1eb5db57a766c93df9c25551f600);
+            
+        
+
+        circle_marker_c165b08c2c738f66679082f67d6bce8b.bindPopup(popup_e3a21b3e1f95e79f9c92ab9ec48bc43c)
+        ;
+
+        
+    
+    
+            circle_marker_c165b08c2c738f66679082f67d6bce8b.bindTooltip(
+                `<div>
+                     Location: Badore, Ajah<br>Distance to Road: 1.5m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d9b7ec0b1a7a0eb774f9dec50ec3c465 = L.circleMarker(
+                [6.4901864, 3.3556715],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_a70225ae235477b710f4a357b17d4d92 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c4ef06e9231abc5054e582b9d3fc040d = $(`<div id="html_c4ef06e9231abc5054e582b9d3fc040d" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Bode Thomas<br>     <b>Distance to Road:</b> 27.0 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 37     </div>`)[0];
+                popup_a70225ae235477b710f4a357b17d4d92.setContent(html_c4ef06e9231abc5054e582b9d3fc040d);
+            
+        
+
+        circle_marker_d9b7ec0b1a7a0eb774f9dec50ec3c465.bindPopup(popup_a70225ae235477b710f4a357b17d4d92)
+        ;
+
+        
+    
+    
+            circle_marker_d9b7ec0b1a7a0eb774f9dec50ec3c465.bindTooltip(
+                `<div>
+                     Location: Bode Thomas<br>Distance to Road: 27.0m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_86ed69ac4105f4995695157a980807c8 = L.circleMarker(
+                [6.5807286, 3.348047],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_188868a92863832226cb47ac9964a063 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2863f63ab9c7ab59db572428b6fb7240 = $(`<div id="html_2863f63ab9c7ab59db572428b6fb7240" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Con Oil, Ikeja<br>     <b>Distance to Road:</b> 44.3 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 11     </div>`)[0];
+                popup_188868a92863832226cb47ac9964a063.setContent(html_2863f63ab9c7ab59db572428b6fb7240);
+            
+        
+
+        circle_marker_86ed69ac4105f4995695157a980807c8.bindPopup(popup_188868a92863832226cb47ac9964a063)
+        ;
+
+        
+    
+    
+            circle_marker_86ed69ac4105f4995695157a980807c8.bindTooltip(
+                `<div>
+                     Location: Con Oil, Ikeja<br>Distance to Road: 44.3m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_859ca683588b783a279b00f71277be8a = L.circleMarker(
+                [6.553135, 3.3912479],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_cdda5ec17d7db6c0ea46b58888eeb02a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d299ad6b240a7501ad0fe0bb8422f29b = $(`<div id="html_d299ad6b240a7501ad0fe0bb8422f29b" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Diya, Gbagada<br>     <b>Distance to Road:</b> 23.7 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 33     </div>`)[0];
+                popup_cdda5ec17d7db6c0ea46b58888eeb02a.setContent(html_d299ad6b240a7501ad0fe0bb8422f29b);
+            
+        
+
+        circle_marker_859ca683588b783a279b00f71277be8a.bindPopup(popup_cdda5ec17d7db6c0ea46b58888eeb02a)
+        ;
+
+        
+    
+    
+            circle_marker_859ca683588b783a279b00f71277be8a.bindTooltip(
+                `<div>
+                     Location: Diya, Gbagada<br>Distance to Road: 23.7m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1b0bbaa70c4f5e24f0388a6443c55a65 = L.circleMarker(
+                [6.5065533, 3.3750592],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_b12aea5ccc0452b68556efc012320d90 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ba3a854afe49266b10894d11930ce31d = $(`<div id="html_ba3a854afe49266b10894d11930ce31d" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Domino E-Centre<br>     <b>Distance to Road:</b> 12.3 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 27     </div>`)[0];
+                popup_b12aea5ccc0452b68556efc012320d90.setContent(html_ba3a854afe49266b10894d11930ce31d);
+            
+        
+
+        circle_marker_1b0bbaa70c4f5e24f0388a6443c55a65.bindPopup(popup_b12aea5ccc0452b68556efc012320d90)
+        ;
+
+        
+    
+    
+            circle_marker_1b0bbaa70c4f5e24f0388a6443c55a65.bindTooltip(
+                `<div>
+                     Location: Domino E-Centre<br>Distance to Road: 12.3m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_daec0012902752a52be3f425614affdc = L.circleMarker(
+                [6.5326425, 3.306756],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_91ac84fc2f81b0b018025fa2c89526d7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b3253557a3a09e1d17deffb98dc94cba = $(`<div id="html_b3253557a3a09e1d17deffb98dc94cba" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Egbe Road, Ejigbo<br>     <b>Distance to Road:</b> 13.9 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 33     </div>`)[0];
+                popup_91ac84fc2f81b0b018025fa2c89526d7.setContent(html_b3253557a3a09e1d17deffb98dc94cba);
+            
+        
+
+        circle_marker_daec0012902752a52be3f425614affdc.bindPopup(popup_91ac84fc2f81b0b018025fa2c89526d7)
+        ;
+
+        
+    
+    
+            circle_marker_daec0012902752a52be3f425614affdc.bindTooltip(
+                `<div>
+                     Location: Egbe Road, Ejigbo<br>Distance to Road: 13.9m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_205a9f1d340cd2482252743a7d2e4167 = L.circleMarker(
+                [6.6417437, 3.2872394],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_b4138a406b766c948ddddb7355e9ecf9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3a238a5e924a947b431a9c5e4b76f6a5 = $(`<div id="html_3a238a5e924a947b431a9c5e4b76f6a5" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Ekoro<br>     <b>Distance to Road:</b> 9.1 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 16     </div>`)[0];
+                popup_b4138a406b766c948ddddb7355e9ecf9.setContent(html_3a238a5e924a947b431a9c5e4b76f6a5);
+            
+        
+
+        circle_marker_205a9f1d340cd2482252743a7d2e4167.bindPopup(popup_b4138a406b766c948ddddb7355e9ecf9)
+        ;
+
+        
+    
+    
+            circle_marker_205a9f1d340cd2482252743a7d2e4167.bindTooltip(
+                `<div>
+                     Location: Ekoro<br>Distance to Road: 9.1m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d917536224b0d3f347358628b9a44ee2 = L.circleMarker(
+                [6.4437609, 3.4642795],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_9ebfe8107ea19de715d214a33a11ebd6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_23a65bb6e1097ba6c4f505fc6106672e = $(`<div id="html_23a65bb6e1097ba6c4f505fc6106672e" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Entourage Mall<br>     <b>Distance to Road:</b> 17.8 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 34     </div>`)[0];
+                popup_9ebfe8107ea19de715d214a33a11ebd6.setContent(html_23a65bb6e1097ba6c4f505fc6106672e);
+            
+        
+
+        circle_marker_d917536224b0d3f347358628b9a44ee2.bindPopup(popup_9ebfe8107ea19de715d214a33a11ebd6)
+        ;
+
+        
+    
+    
+            circle_marker_d917536224b0d3f347358628b9a44ee2.bindTooltip(
+                `<div>
+                     Location: Entourage Mall<br>Distance to Road: 17.8m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8121a74b2f2bdf1a898ab9969a7153ac = L.circleMarker(
+                [6.4372562, 3.507993],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_fb05d66b6a1857d33f38d79d8cc98089 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cdc89de25b3735d96d4f5a5d2dc51290 = $(`<div id="html_cdc89de25b3735d96d4f5a5d2dc51290" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Eterna, Lekki Jakande Roundabout<br>     <b>Distance to Road:</b> 30.1 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 28     </div>`)[0];
+                popup_fb05d66b6a1857d33f38d79d8cc98089.setContent(html_cdc89de25b3735d96d4f5a5d2dc51290);
+            
+        
+
+        circle_marker_8121a74b2f2bdf1a898ab9969a7153ac.bindPopup(popup_fb05d66b6a1857d33f38d79d8cc98089)
+        ;
+
+        
+    
+    
+            circle_marker_8121a74b2f2bdf1a898ab9969a7153ac.bindTooltip(
+                `<div>
+                     Location: Eterna, Lekki Jakande Roundabout<br>Distance to Road: 30.1m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7f1ad0caea232acd9c2fd19b68f28846 = L.circleMarker(
+                [6.4664428, 3.2838087],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_b837aeaf7ff9deb050ca83402e6e77db = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1e12e684638026fe39867eb6d0d1b5ae = $(`<div id="html_1e12e684638026fe39867eb6d0d1b5ae" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Festac<br>     <b>Distance to Road:</b> 5.4 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 15     </div>`)[0];
+                popup_b837aeaf7ff9deb050ca83402e6e77db.setContent(html_1e12e684638026fe39867eb6d0d1b5ae);
+            
+        
+
+        circle_marker_7f1ad0caea232acd9c2fd19b68f28846.bindPopup(popup_b837aeaf7ff9deb050ca83402e6e77db)
+        ;
+
+        
+    
+    
+            circle_marker_7f1ad0caea232acd9c2fd19b68f28846.bindTooltip(
+                `<div>
+                     Location: Festac<br>Distance to Road: 5.4m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2c50d4481e97f420ebf95c73d4fee5f0 = L.circleMarker(
+                [6.4377874, 3.4816702],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_4764e13da81ab75d8baf65ed2ddd8be1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6dd811b2f1eaa4fb99f001fe1774f111 = $(`<div id="html_6dd811b2f1eaa4fb99f001fe1774f111" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Freedom Way, Lekki<br>     <b>Distance to Road:</b> 0.8 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 1     </div>`)[0];
+                popup_4764e13da81ab75d8baf65ed2ddd8be1.setContent(html_6dd811b2f1eaa4fb99f001fe1774f111);
+            
+        
+
+        circle_marker_2c50d4481e97f420ebf95c73d4fee5f0.bindPopup(popup_4764e13da81ab75d8baf65ed2ddd8be1)
+        ;
+
+        
+    
+    
+            circle_marker_2c50d4481e97f420ebf95c73d4fee5f0.bindTooltip(
+                `<div>
+                     Location: Freedom Way, Lekki<br>Distance to Road: 0.8m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_32499f3b6156e736fce1b760edbbafdd = L.circleMarker(
+                [6.548357, 3.3875364],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_c0fc12d940d40f883f2b0da1a7612e54 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5916c99b80656151f4a9ac0bb8549f07 = $(`<div id="html_5916c99b80656151f4a9ac0bb8549f07" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Gbagada<br>     <b>Distance to Road:</b> 32.0 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 40     </div>`)[0];
+                popup_c0fc12d940d40f883f2b0da1a7612e54.setContent(html_5916c99b80656151f4a9ac0bb8549f07);
+            
+        
+
+        circle_marker_32499f3b6156e736fce1b760edbbafdd.bindPopup(popup_c0fc12d940d40f883f2b0da1a7612e54)
+        ;
+
+        
+    
+    
+            circle_marker_32499f3b6156e736fce1b760edbbafdd.bindTooltip(
+                `<div>
+                     Location: Gbagada<br>Distance to Road: 32.0m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4a7051f5e4dfa51b9ddfdc0b27fc998b = L.circleMarker(
+                [6.689923, 3.5124039],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_ec31c991c70887a6d02353fd3bb01341 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_15ceb219b2b9c005cca405bb95f1e2e1 = $(`<div id="html_15ceb219b2b9c005cca405bb95f1e2e1" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Heyden Ibafo<br>     <b>Distance to Road:</b> 579.3 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 18     </div>`)[0];
+                popup_ec31c991c70887a6d02353fd3bb01341.setContent(html_15ceb219b2b9c005cca405bb95f1e2e1);
+            
+        
+
+        circle_marker_4a7051f5e4dfa51b9ddfdc0b27fc998b.bindPopup(popup_ec31c991c70887a6d02353fd3bb01341)
+        ;
+
+        
+    
+    
+            circle_marker_4a7051f5e4dfa51b9ddfdc0b27fc998b.bindTooltip(
+                `<div>
+                     Location: Heyden Ibafo<br>Distance to Road: 579.3m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_550751fa29dfe03cb001a8dd6fb25446 = L.circleMarker(
+                [6.5831874, 3.2836513],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_b7804aa9b09c74154d1cd7a561e5833a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5adc517b5029fbb43f2addffae3a75aa = $(`<div id="html_5adc517b5029fbb43f2addffae3a75aa" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Idimu<br>     <b>Distance to Road:</b> 12.6 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 17     </div>`)[0];
+                popup_b7804aa9b09c74154d1cd7a561e5833a.setContent(html_5adc517b5029fbb43f2addffae3a75aa);
+            
+        
+
+        circle_marker_550751fa29dfe03cb001a8dd6fb25446.bindPopup(popup_b7804aa9b09c74154d1cd7a561e5833a)
+        ;
+
+        
+    
+    
+            circle_marker_550751fa29dfe03cb001a8dd6fb25446.bindTooltip(
+                `<div>
+                     Location: Idimu<br>Distance to Road: 12.6m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fb76adab48f2f3bf6483f4a4bc284a00 = L.circleMarker(
+                [6.6143564, 3.3581327],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_294afe99e577864db4f114135c35d7d3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cc6a6cd34a0cfb915d33629e752a8aec = $(`<div id="html_cc6a6cd34a0cfb915d33629e752a8aec" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Ikeja City Mall<br>     <b>Distance to Road:</b> 99.5 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 23     </div>`)[0];
+                popup_294afe99e577864db4f114135c35d7d3.setContent(html_cc6a6cd34a0cfb915d33629e752a8aec);
+            
+        
+
+        circle_marker_fb76adab48f2f3bf6483f4a4bc284a00.bindPopup(popup_294afe99e577864db4f114135c35d7d3)
+        ;
+
+        
+    
+    
+            circle_marker_fb76adab48f2f3bf6483f4a4bc284a00.bindTooltip(
+                `<div>
+                     Location: Ikeja City Mall<br>Distance to Road: 99.5m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c46ae69fbd56f43fc0cbc4512e3b16e2 = L.circleMarker(
+                [6.6026514, 3.4881414],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_06f026ffb0d7b2b8ad0d9bde1f3de989 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1ea09724eec28941fee38b8a874ceb0e = $(`<div id="html_1ea09724eec28941fee38b8a874ceb0e" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Ikorodu<br>     <b>Distance to Road:</b> 3.1 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 19     </div>`)[0];
+                popup_06f026ffb0d7b2b8ad0d9bde1f3de989.setContent(html_1ea09724eec28941fee38b8a874ceb0e);
+            
+        
+
+        circle_marker_c46ae69fbd56f43fc0cbc4512e3b16e2.bindPopup(popup_06f026ffb0d7b2b8ad0d9bde1f3de989)
+        ;
+
+        
+    
+    
+            circle_marker_c46ae69fbd56f43fc0cbc4512e3b16e2.bindTooltip(
+                `<div>
+                     Location: Ikorodu<br>Distance to Road: 3.1m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8ab564d6598dafe2e1d1d6f5919f8815 = L.circleMarker(
+                [6.5571294, 3.2699058],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_cd0a41b66d9bf42cc992c0d322f7a53b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b5e4b9d281689cf8a3a38d0fb9e4e984 = $(`<div id="html_b5e4b9d281689cf8a3a38d0fb9e4e984" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Ikotun-Idumu Road<br>     <b>Distance to Road:</b> 2.5 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 18     </div>`)[0];
+                popup_cd0a41b66d9bf42cc992c0d322f7a53b.setContent(html_b5e4b9d281689cf8a3a38d0fb9e4e984);
+            
+        
+
+        circle_marker_8ab564d6598dafe2e1d1d6f5919f8815.bindPopup(popup_cd0a41b66d9bf42cc992c0d322f7a53b)
+        ;
+
+        
+    
+    
+            circle_marker_8ab564d6598dafe2e1d1d6f5919f8815.bindTooltip(
+                `<div>
+                     Location: Ikotun-Idumu Road<br>Distance to Road: 2.5m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cf34e90a2867da0905257e1fea54f92a = L.circleMarker(
+                [6.5468252, 3.362263],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_b9794ebb579bdaf93fde5f389a8da9de = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_acb71b027f982fd33e018e7ce816a1eb = $(`<div id="html_acb71b027f982fd33e018e7ce816a1eb" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Ilupeju<br>     <b>Distance to Road:</b> 15.0 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 18     </div>`)[0];
+                popup_b9794ebb579bdaf93fde5f389a8da9de.setContent(html_acb71b027f982fd33e018e7ce816a1eb);
+            
+        
+
+        circle_marker_cf34e90a2867da0905257e1fea54f92a.bindPopup(popup_b9794ebb579bdaf93fde5f389a8da9de)
+        ;
+
+        
+    
+    
+            circle_marker_cf34e90a2867da0905257e1fea54f92a.bindTooltip(
+                `<div>
+                     Location: Ilupeju<br>Distance to Road: 15.0m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_051cb4adaab3079b301fd7f890a2883b = L.circleMarker(
+                [6.6050072, 3.2729508],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_376518411c8d17890defd4ca122475da = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e3d51271c4b55fa4f56ea63ae05c5e43 = $(`<div id="html_e3d51271c4b55fa4f56ea63ae05c5e43" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Ipaja-Ayobo Road<br>     <b>Distance to Road:</b> 13.8 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 18     </div>`)[0];
+                popup_376518411c8d17890defd4ca122475da.setContent(html_e3d51271c4b55fa4f56ea63ae05c5e43);
+            
+        
+
+        circle_marker_051cb4adaab3079b301fd7f890a2883b.bindPopup(popup_376518411c8d17890defd4ca122475da)
+        ;
+
+        
+    
+    
+            circle_marker_051cb4adaab3079b301fd7f890a2883b.bindTooltip(
+                `<div>
+                     Location: Ipaja-Ayobo Road<br>Distance to Road: 13.8m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eb601ea26ffbc9a16134c858ea0fbcef = L.circleMarker(
+                [6.5252506, 3.3221686],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_ebdb91876f667f6ebafe7613c0a6a35e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7ca893d695f4e553e662ab61d78d3407 = $(`<div id="html_7ca893d695f4e553e662ab61d78d3407" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Ire-Akari<br>     <b>Distance to Road:</b> 3.8 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 35     </div>`)[0];
+                popup_ebdb91876f667f6ebafe7613c0a6a35e.setContent(html_7ca893d695f4e553e662ab61d78d3407);
+            
+        
+
+        circle_marker_eb601ea26ffbc9a16134c858ea0fbcef.bindPopup(popup_ebdb91876f667f6ebafe7613c0a6a35e)
+        ;
+
+        
+    
+    
+            circle_marker_eb601ea26ffbc9a16134c858ea0fbcef.bindTooltip(
+                `<div>
+                     Location: Ire-Akari<br>Distance to Road: 3.8m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3ed2789abe9a56f08f63a7715fb3c811 = L.circleMarker(
+                [6.6564303, 3.4761491],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_63c06dddd58274313cc98eebe86506e4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fbe44efd478f89a496172d62bbc7390c = $(`<div id="html_fbe44efd478f89a496172d62bbc7390c" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Isawo Road<br>     <b>Distance to Road:</b> 5.1 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 9     </div>`)[0];
+                popup_63c06dddd58274313cc98eebe86506e4.setContent(html_fbe44efd478f89a496172d62bbc7390c);
+            
+        
+
+        circle_marker_3ed2789abe9a56f08f63a7715fb3c811.bindPopup(popup_63c06dddd58274313cc98eebe86506e4)
+        ;
+
+        
+    
+    
+            circle_marker_3ed2789abe9a56f08f63a7715fb3c811.bindTooltip(
+                `<div>
+                     Location: Isawo Road<br>Distance to Road: 5.1m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c81d90b4bb0871fe0bd50c37bbe1c143 = L.circleMarker(
+                [6.5187145, 3.3678912],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_a6ea07ca8d81eba58e2e2491552946c6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_87e8ca9bf43d0529c2809edfec86af3b = $(`<div id="html_87e8ca9bf43d0529c2809edfec86af3b" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Jibowu<br>     <b>Distance to Road:</b> 1.7 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 14     </div>`)[0];
+                popup_a6ea07ca8d81eba58e2e2491552946c6.setContent(html_87e8ca9bf43d0529c2809edfec86af3b);
+            
+        
+
+        circle_marker_c81d90b4bb0871fe0bd50c37bbe1c143.bindPopup(popup_a6ea07ca8d81eba58e2e2491552946c6)
+        ;
+
+        
+    
+    
+            circle_marker_c81d90b4bb0871fe0bd50c37bbe1c143.bindTooltip(
+                `<div>
+                     Location: Jibowu<br>Distance to Road: 1.7m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9cb2dfa3b5944f3b8a72bf692a82878c = L.circleMarker(
+                [6.5864624, 3.3545254],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_6151a74552d2e276e6f2f03a76156f3b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4f41cb2ab9a151ec8d13c9ce6f56c1b3 = $(`<div id="html_4f41cb2ab9a151ec8d13c9ce6f56c1b3" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Joel Ogunnaike<br>     <b>Distance to Road:</b> 12.0 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 38     </div>`)[0];
+                popup_6151a74552d2e276e6f2f03a76156f3b.setContent(html_4f41cb2ab9a151ec8d13c9ce6f56c1b3);
+            
+        
+
+        circle_marker_9cb2dfa3b5944f3b8a72bf692a82878c.bindPopup(popup_6151a74552d2e276e6f2f03a76156f3b)
+        ;
+
+        
+    
+    
+            circle_marker_9cb2dfa3b5944f3b8a72bf692a82878c.bindTooltip(
+                `<div>
+                     Location: Joel Ogunnaike<br>Distance to Road: 12.0m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b5ebc937025e0032bfbd3a047a96b32f = L.circleMarker(
+                [6.6117447, 3.3694419],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_d7e5c9d4421381f5c36a118c1a210f45 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_377cdbd393dca10e81823ad3f22e4e92 = $(`<div id="html_377cdbd393dca10e81823ad3f22e4e92" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Magodo<br>     <b>Distance to Road:</b> 4.2 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 3     </div>`)[0];
+                popup_d7e5c9d4421381f5c36a118c1a210f45.setContent(html_377cdbd393dca10e81823ad3f22e4e92);
+            
+        
+
+        circle_marker_b5ebc937025e0032bfbd3a047a96b32f.bindPopup(popup_d7e5c9d4421381f5c36a118c1a210f45)
+        ;
+
+        
+    
+    
+            circle_marker_b5ebc937025e0032bfbd3a047a96b32f.bindTooltip(
+                `<div>
+                     Location: Magodo<br>Distance to Road: 4.2m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_56ca4b73857a16b563ef30e90e78d5f2 = L.circleMarker(
+                [6.4319054, 3.3798359],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_d33485b8d642af1c76d9215af4716ca8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_05051dc42bc49c826213614da858abdd = $(`<div id="html_05051dc42bc49c826213614da858abdd" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Marina<br>     <b>Distance to Road:</b> 768.6 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 1     </div>`)[0];
+                popup_d33485b8d642af1c76d9215af4716ca8.setContent(html_05051dc42bc49c826213614da858abdd);
+            
+        
+
+        circle_marker_56ca4b73857a16b563ef30e90e78d5f2.bindPopup(popup_d33485b8d642af1c76d9215af4716ca8)
+        ;
+
+        
+    
+    
+            circle_marker_56ca4b73857a16b563ef30e90e78d5f2.bindTooltip(
+                `<div>
+                     Location: Marina<br>Distance to Road: 768.6m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3fa640237b873dfe3910b6c3d67e502d = L.circleMarker(
+                [6.5900859, 3.3319794],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_e1a555a48ae053a1f622d846815cdf32 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f9e94b9aa219ffc48960c5adb80e6e76 = $(`<div id="html_f9e94b9aa219ffc48960c5adb80e6e76" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> MM2 Lagos<br>     <b>Distance to Road:</b> 244.3 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 29     </div>`)[0];
+                popup_e1a555a48ae053a1f622d846815cdf32.setContent(html_f9e94b9aa219ffc48960c5adb80e6e76);
+            
+        
+
+        circle_marker_3fa640237b873dfe3910b6c3d67e502d.bindPopup(popup_e1a555a48ae053a1f622d846815cdf32)
+        ;
+
+        
+    
+    
+            circle_marker_3fa640237b873dfe3910b6c3d67e502d.bindTooltip(
+                `<div>
+                     Location: MM2 Lagos<br>Distance to Road: 244.3m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9b2bee8ab1beda416208743ae4172a44 = L.circleMarker(
+                [6.5795773, 3.3226101],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_1d63753f304fa2707f517dce48314108 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d416c2923dd9d22d7c863fecb73378cf = $(`<div id="html_d416c2923dd9d22d7c863fecb73378cf" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> MMIA<br>     <b>Distance to Road:</b> 216.0 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 9     </div>`)[0];
+                popup_1d63753f304fa2707f517dce48314108.setContent(html_d416c2923dd9d22d7c863fecb73378cf);
+            
+        
+
+        circle_marker_9b2bee8ab1beda416208743ae4172a44.bindPopup(popup_1d63753f304fa2707f517dce48314108)
+        ;
+
+        
+    
+    
+            circle_marker_9b2bee8ab1beda416208743ae4172a44.bindTooltip(
+                `<div>
+                     Location: MMIA<br>Distance to Road: 216.0m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_05020f5d8ead959ad163cf89be242220 = L.circleMarker(
+                [6.6289279, 3.3377172],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_d952e46afefe3d4bda801071ec21f1de = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8a6178d1f78440f90966f19e88e56d48 = $(`<div id="html_8a6178d1f78440f90966f19e88e56d48" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Mobil Ogba<br>     <b>Distance to Road:</b> 8.6 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 13     </div>`)[0];
+                popup_d952e46afefe3d4bda801071ec21f1de.setContent(html_8a6178d1f78440f90966f19e88e56d48);
+            
+        
+
+        circle_marker_05020f5d8ead959ad163cf89be242220.bindPopup(popup_d952e46afefe3d4bda801071ec21f1de)
+        ;
+
+        
+    
+    
+            circle_marker_05020f5d8ead959ad163cf89be242220.bindTooltip(
+                `<div>
+                     Location: Mobil Ogba<br>Distance to Road: 8.6m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_682d280a8833207cb6c879fe71d1a2b5 = L.circleMarker(
+                [6.601257, 3.339058],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_6cb8e44df406f84e58d17109d0765c38 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ecbe74d7aab84009bad06cb0d906b764 = $(`<div id="html_ecbe74d7aab84009bad06cb0d906b764" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Oba Akran<br>     <b>Distance to Road:</b> 32.8 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 20     </div>`)[0];
+                popup_6cb8e44df406f84e58d17109d0765c38.setContent(html_ecbe74d7aab84009bad06cb0d906b764);
+            
+        
+
+        circle_marker_682d280a8833207cb6c879fe71d1a2b5.bindPopup(popup_6cb8e44df406f84e58d17109d0765c38)
+        ;
+
+        
+    
+    
+            circle_marker_682d280a8833207cb6c879fe71d1a2b5.bindTooltip(
+                `<div>
+                     Location: Oba Akran<br>Distance to Road: 32.8m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e81f24fa82824646b76a4ef1d47fa9ee = L.circleMarker(
+                [6.5753283, 3.3910974],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_67d6d2033ceb17aeb7eda5dde25416ca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4006786ed396b00b2c384f539190b9d6 = $(`<div id="html_4006786ed396b00b2c384f539190b9d6" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Ogudu<br>     <b>Distance to Road:</b> 13.1 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 21     </div>`)[0];
+                popup_67d6d2033ceb17aeb7eda5dde25416ca.setContent(html_4006786ed396b00b2c384f539190b9d6);
+            
+        
+
+        circle_marker_e81f24fa82824646b76a4ef1d47fa9ee.bindPopup(popup_67d6d2033ceb17aeb7eda5dde25416ca)
+        ;
+
+        
+    
+    
+            circle_marker_e81f24fa82824646b76a4ef1d47fa9ee.bindTooltip(
+                `<div>
+                     Location: Ogudu<br>Distance to Road: 13.1m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fecbc6274296104ee33fd23164ab1fea = L.circleMarker(
+                [6.5097574, 3.3525986],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_1da68c7f09faef4becd64670801a2270 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c9ff469e917decb210b9174c5cdcae76 = $(`<div id="html_c9ff469e917decb210b9174c5cdcae76" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Ogunlana Drive<br>     <b>Distance to Road:</b> 12.6 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 27     </div>`)[0];
+                popup_1da68c7f09faef4becd64670801a2270.setContent(html_c9ff469e917decb210b9174c5cdcae76);
+            
+        
+
+        circle_marker_fecbc6274296104ee33fd23164ab1fea.bindPopup(popup_1da68c7f09faef4becd64670801a2270)
+        ;
+
+        
+    
+    
+            circle_marker_fecbc6274296104ee33fd23164ab1fea.bindTooltip(
+                `<div>
+                     Location: Ogunlana Drive<br>Distance to Road: 12.6m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1f027ac1def937a894616029c0d68193 = L.circleMarker(
+                [6.5290034, 3.3112557],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_27b86c0352f7ed3daa8d38f45faf90f3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_af931e35a55a9ea8992670900c066728 = $(`<div id="html_af931e35a55a9ea8992670900c066728" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Oke Afa<br>     <b>Distance to Road:</b> 7.9 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 36     </div>`)[0];
+                popup_27b86c0352f7ed3daa8d38f45faf90f3.setContent(html_af931e35a55a9ea8992670900c066728);
+            
+        
+
+        circle_marker_1f027ac1def937a894616029c0d68193.bindPopup(popup_27b86c0352f7ed3daa8d38f45faf90f3)
+        ;
+
+        
+    
+    
+            circle_marker_1f027ac1def937a894616029c0d68193.bindTooltip(
+                `<div>
+                     Location: Oke Afa<br>Distance to Road: 7.9m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8b71a53def41cb2babd3bce2269e4d9f = L.circleMarker(
+                [6.5276571, 3.3175587],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_77dda546802f7601aadcb3f96a613552 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_313bfd367f6659fa27db89a32182e7e3 = $(`<div id="html_313bfd367f6659fa27db89a32182e7e3" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Okota<br>     <b>Distance to Road:</b> 27.8 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 44     </div>`)[0];
+                popup_77dda546802f7601aadcb3f96a613552.setContent(html_313bfd367f6659fa27db89a32182e7e3);
+            
+        
+
+        circle_marker_8b71a53def41cb2babd3bce2269e4d9f.bindPopup(popup_77dda546802f7601aadcb3f96a613552)
+        ;
+
+        
+    
+    
+            circle_marker_8b71a53def41cb2babd3bce2269e4d9f.bindTooltip(
+                `<div>
+                     Location: Okota<br>Distance to Road: 27.8m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4cc4984f028ea81e6a66374af05f0ec3 = L.circleMarker(
+                [6.6351156, 3.3603044],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_6df9257740b0ebc31dfb78ef481c8b8f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9531bbacc60f69eec66b0bde1ff896b0 = $(`<div id="html_9531bbacc60f69eec66b0bde1ff896b0" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Omole<br>     <b>Distance to Road:</b> 8.1 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 29     </div>`)[0];
+                popup_6df9257740b0ebc31dfb78ef481c8b8f.setContent(html_9531bbacc60f69eec66b0bde1ff896b0);
+            
+        
+
+        circle_marker_4cc4984f028ea81e6a66374af05f0ec3.bindPopup(popup_6df9257740b0ebc31dfb78ef481c8b8f)
+        ;
+
+        
+    
+    
+            circle_marker_4cc4984f028ea81e6a66374af05f0ec3.bindTooltip(
+                `<div>
+                     Location: Omole<br>Distance to Road: 8.1m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_29c2692850523643938aafa9da8556bb = L.circleMarker(
+                [6.4290982, 3.4238032],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_8f59a264bc597be584ff3d9ec570408b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2f4fc307f621b0d2764260827f545f5e = $(`<div id="html_2f4fc307f621b0d2764260827f545f5e" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Oniru<br>     <b>Distance to Road:</b> 7.1 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 32     </div>`)[0];
+                popup_8f59a264bc597be584ff3d9ec570408b.setContent(html_2f4fc307f621b0d2764260827f545f5e);
+            
+        
+
+        circle_marker_29c2692850523643938aafa9da8556bb.bindPopup(popup_8f59a264bc597be584ff3d9ec570408b)
+        ;
+
+        
+    
+    
+            circle_marker_29c2692850523643938aafa9da8556bb.bindTooltip(
+                `<div>
+                     Location: Oniru<br>Distance to Road: 7.1m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_07f5c0ff004972befcee9474606b4f2e = L.circleMarker(
+                [6.5916388, 3.3598123],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_f63c1b268a7098a27e0affe8e8da7b04 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_917cbe8a79118441baffceb0a0e30b0d = $(`<div id="html_917cbe8a79118441baffceb0a0e30b0d" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Opebi<br>     <b>Distance to Road:</b> 24.9 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 33     </div>`)[0];
+                popup_f63c1b268a7098a27e0affe8e8da7b04.setContent(html_917cbe8a79118441baffceb0a0e30b0d);
+            
+        
+
+        circle_marker_07f5c0ff004972befcee9474606b4f2e.bindPopup(popup_f63c1b268a7098a27e0affe8e8da7b04)
+        ;
+
+        
+    
+    
+            circle_marker_07f5c0ff004972befcee9474606b4f2e.bindTooltip(
+                `<div>
+                     Location: Opebi<br>Distance to Road: 24.9m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f2b17a54d4e9fa97db2e704b55ca6861 = L.circleMarker(
+                [6.5482678, 3.3321037],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_119041d957c6310a36f52bee470e3a40 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_81e27c360484685b4dd2207844fb5b1e = $(`<div id="html_81e27c360484685b4dd2207844fb5b1e" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Osolo Way<br>     <b>Distance to Road:</b> 15.0 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 18     </div>`)[0];
+                popup_119041d957c6310a36f52bee470e3a40.setContent(html_81e27c360484685b4dd2207844fb5b1e);
+            
+        
+
+        circle_marker_f2b17a54d4e9fa97db2e704b55ca6861.bindPopup(popup_119041d957c6310a36f52bee470e3a40)
+        ;
+
+        
+    
+    
+            circle_marker_f2b17a54d4e9fa97db2e704b55ca6861.bindTooltip(
+                `<div>
+                     Location: Osolo Way<br>Distance to Road: 15.0m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6c634c036ad4e1926419a868c4626cc7 = L.circleMarker(
+                [6.5414843, 3.3677745],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_03def841b3bf13edef6f27c2832ddfcb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5e80489e1994555cac28fa81d9e6e770 = $(`<div id="html_5e80489e1994555cac28fa81d9e6e770" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Palmgrove Shipeolu<br>     <b>Distance to Road:</b> 31.4 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 18     </div>`)[0];
+                popup_03def841b3bf13edef6f27c2832ddfcb.setContent(html_5e80489e1994555cac28fa81d9e6e770);
+            
+        
+
+        circle_marker_6c634c036ad4e1926419a868c4626cc7.bindPopup(popup_03def841b3bf13edef6f27c2832ddfcb)
+        ;
+
+        
+    
+    
+            circle_marker_6c634c036ad4e1926419a868c4626cc7.bindTooltip(
+                `<div>
+                     Location: Palmgrove Shipeolu<br>Distance to Road: 31.4m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a20d8295a680cb305d913f6797d51660 = L.circleMarker(
+                [6.4732897, 3.6356724],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_6d5372faee82106e233d04a03765d2f9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d45c01d8b37b4eacd708fc05e02da851 = $(`<div id="html_d45c01d8b37b4eacd708fc05e02da851" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Sky Mall Sangotedo<br>     <b>Distance to Road:</b> 20.9 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 20     </div>`)[0];
+                popup_6d5372faee82106e233d04a03765d2f9.setContent(html_d45c01d8b37b4eacd708fc05e02da851);
+            
+        
+
+        circle_marker_a20d8295a680cb305d913f6797d51660.bindPopup(popup_6d5372faee82106e233d04a03765d2f9)
+        ;
+
+        
+    
+    
+            circle_marker_a20d8295a680cb305d913f6797d51660.bindTooltip(
+                `<div>
+                     Location: Sky Mall Sangotedo<br>Distance to Road: 20.9m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_757302fa1ac366d3f279c42016723670 = L.circleMarker(
+                [6.508835, 3.3681903],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_409797da366fa77dfc8a1051ef9a14aa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_841922d7cf4fd736d3625ccd0773d8f9 = $(`<div id="html_841922d7cf4fd736d3625ccd0773d8f9" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Tejuosho<br>     <b>Distance to Road:</b> 16.7 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 21     </div>`)[0];
+                popup_409797da366fa77dfc8a1051ef9a14aa.setContent(html_841922d7cf4fd736d3625ccd0773d8f9);
+            
+        
+
+        circle_marker_757302fa1ac366d3f279c42016723670.bindPopup(popup_409797da366fa77dfc8a1051ef9a14aa)
+        ;
+
+        
+    
+    
+            circle_marker_757302fa1ac366d3f279c42016723670.bindTooltip(
+                `<div>
+                     Location: Tejuosho<br>Distance to Road: 16.7m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_43abdfcc610547aefa7a283c1722de6c = L.circleMarker(
+                [6.4352302, 3.4985608],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_ecc5820f327402ab9d9f4fccd082df3f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ece67ab6e78abcfe0afc766836013709 = $(`<div id="html_ece67ab6e78abcfe0afc766836013709" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> Total, Lekki<br>     <b>Distance to Road:</b> 6.3 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 28     </div>`)[0];
+                popup_ecc5820f327402ab9d9f4fccd082df3f.setContent(html_ece67ab6e78abcfe0afc766836013709);
+            
+        
+
+        circle_marker_43abdfcc610547aefa7a283c1722de6c.bindPopup(popup_ecc5820f327402ab9d9f4fccd082df3f)
+        ;
+
+        
+    
+    
+            circle_marker_43abdfcc610547aefa7a283c1722de6c.bindTooltip(
+                `<div>
+                     Location: Total, Lekki<br>Distance to Road: 6.3m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0351c5a833005da58760e55fcde04462 = L.circleMarker(
+                [6.4688629, 3.704373],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+    
+        var popup_797302401238d3f70cb203e9b54493c6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_208e46972f680897aa19e57e922d625d = $(`<div id="html_208e46972f680897aa19e57e922d625d" style="width: 100.0%; height: 100.0%;">     <b>Location:</b> VGC<br>     <b>Distance to Road:</b> 0.0 meters<br>     <b>Count of Nearby Restaurants (within 1 km):</b> 20     </div>`)[0];
+                popup_797302401238d3f70cb203e9b54493c6.setContent(html_208e46972f680897aa19e57e922d625d);
+            
+        
+
+        circle_marker_0351c5a833005da58760e55fcde04462.bindPopup(popup_797302401238d3f70cb203e9b54493c6)
+        ;
+
+        
+    
+    
+            circle_marker_0351c5a833005da58760e55fcde04462.bindTooltip(
+                `<div>
+                     Location: VGC<br>Distance to Road: 0.0m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var heat_map_7014d9af3695790098f66e868d6f9fc6 = L.heatLayer(
+                [[6.6195718, 3.3014989], [6.6196305, 3.3018878], [6.6147269, 3.2981318], [6.6169518, 3.3126957], [6.6228208, 3.3134958], [6.6346042, 3.3016215], [6.6042067, 3.3100103], [6.6026671, 3.3072323], [6.6187399, 3.3001958], [6.6187253, 3.3001701], [6.6191891, 3.3008554], [6.6181529, 3.3006966], [6.6177877, 3.3004344], [6.6183785, 3.2993048], [6.619837, 3.301572], [6.6191807, 3.2985867], [6.6185567, 3.301945], [6.6184911, 3.3023988], [6.6189906, 3.3024964], [6.4406807, 3.4635016], [6.4472154, 3.4549177], [6.440137, 3.4555492], [6.4420223, 3.4544887], [6.4437899, 3.4541821], [6.4440411, 3.4588902], [6.4456329, 3.4544404], [6.4455691, 3.4571713], [6.4463695, 3.4551289], [6.4356899, 3.4509903], [6.446625, 3.4600267], [6.4382661, 3.4633537], [6.4443677, 3.4643494], [6.4426847, 3.4652541], [6.4424071, 3.4654221], [6.4427117, 3.465824], [6.4460426, 3.4661097], [6.4326418, 3.4669972], [6.4420249, 3.4406884], [6.4460005, 3.4701122], [6.6142798, 3.3560412], [6.6342898, 3.3526399], [6.6261427, 3.3535281], [6.6314768, 3.3537184], [6.6333784, 3.3535189], [6.633575, 3.3536033], [6.6268569, 3.3630345], [6.6377498, 3.3554562], [6.6263971, 3.3650032], [6.6164287, 3.3580702], [6.6146275, 3.3581884], [6.6146934, 3.3582947], [6.6143384, 3.3578021], [6.6140589, 3.3565981], [6.6316411, 3.339707], [6.6399638, 3.3635743], [6.6301847, 3.3382135], [6.6111777, 3.3570996], [6.6125562, 3.3454029], [6.6115611, 3.3472651], [6.498327, 3.352799], [6.4924597, 3.3551689], [6.4904604, 3.3511036], [6.4946327, 3.3517336], [6.4896107, 3.3485571], [6.5022024, 3.3512123], [6.5047934, 3.3457767], [6.4958957, 3.3547507], [6.4869819, 3.3524852], [6.5090326, 3.3465202], [6.4901576, 3.3552409], [6.5060822, 3.3509206], [6.4921702, 3.3564155], [6.4873007, 3.3368299], [6.4901775, 3.3556645], [6.4901497, 3.3558588], [6.4920611, 3.3568537], [6.4896675, 3.3562046], [6.4896737, 3.3571936], [6.5049539, 3.3552254], [6.4396582, 3.5111989], [6.4427626, 3.5083482], [6.4373346, 3.5081062], [6.440243, 3.5161308], [6.4390756, 3.5165938], [6.4459307, 3.5169497], [6.4451591, 3.5203168], [6.4375187, 3.5071167], [6.4297954, 3.5222027], [6.43614, 3.50159], [6.4346103, 3.500175], [6.4422755, 3.5157276], [6.4424421, 3.5157905], [6.4425801, 3.5156851], [6.4423436, 3.5161783], [6.4421361, 3.5161953], [6.4417405, 3.5160391], [6.4428346, 3.5154279], [6.4414669, 3.5160829], [6.4414638, 3.5160859], [6.5031564, 3.5828228], [6.4980053, 3.5862173], [6.5042586, 3.5817931], [6.5042586, 3.5817931], [6.5051005, 3.5814934], [6.5029045, 3.5826218], [6.5029045, 3.5826218], [6.5029045, 3.5826218], [6.5025975, 3.5822339], [6.5034417, 3.5839702], [6.5020297, 3.5831365], [6.5029459, 3.5776765], [6.499542, 3.5847911], [6.4995307, 3.5848461], [6.4980733, 3.5826135], [6.4978672, 3.5833726], [6.4979548, 3.5842631], [6.4983325, 3.5850784], [6.4983254, 3.5850764], [6.4979637, 3.5860722], [6.4268691, 3.4388142], [6.4267687, 3.4169328], [6.4312831, 3.4323536], [6.428328, 3.4383015], [6.4344659, 3.4405898], [6.4348625, 3.4313452], [6.4306578, 3.4400862], [6.4315746, 3.4296266], [6.4284244, 3.4267632], [6.4312309, 3.432153], [6.4319925, 3.4303418], [6.4326642, 3.4343334], [6.4318925, 3.4354178], [6.4325267, 3.4283626], [6.4313435, 3.4279385], [6.4272149, 3.4340773], [6.4285106, 3.4284492], [6.430671, 3.4391175], [6.427465, 3.4253767], [6.4251323, 3.4268301], [6.5274265, 3.3807054], [6.527808, 3.3748148], [6.5271278, 3.3866996], [6.516491, 3.385815], [6.5420929, 3.3862623], [6.5349509, 3.3726794], [6.511243, 3.3882267], [6.511385, 3.37762], [6.5196775, 3.3698526], [6.5268743, 3.3862574], [6.5268553, 3.386222], [6.5270684, 3.3865859], [6.5264539, 3.3860498], [6.5272001, 3.3867289], [6.5275767, 3.3864258], [6.5259417, 3.3860462], [6.5269711, 3.3852689], [6.5261554, 3.3854344], [6.5277698, 3.3873272], [6.5266827, 3.3848878], [6.6042067, 3.3100103], [6.6026671, 3.3072323], [6.6021427, 3.3074037], [6.599178, 3.300284], [6.6147269, 3.2981318], [6.6169518, 3.3126957], [6.6196305, 3.3018878], [6.6195718, 3.3014989], [6.6025576, 3.3067917], [6.602461, 3.307391], [6.60235, 3.306717], [6.6022597, 3.3074648], [6.6029618, 3.3073277], [6.6022187, 3.3076154], [6.6025322, 3.3078159], [6.6022301, 3.3078809], [6.6025994, 3.3058786], [6.6015695, 3.3077833], [6.6016135, 3.3062101], [6.5876364, 3.3975303], [6.5935373, 3.398098], [6.5868658, 3.3987458], [6.5829477, 3.3881234], [6.6000633, 3.38963], [6.583219, 3.3846542], [6.6024936, 3.3825929], [6.5876462, 3.3768518], [6.5753283, 3.3910974], [6.5751661, 3.3923088], [6.5744304, 3.3939012], [6.573375, 3.390848], [6.5933284, 3.3928643], [6.5935411, 3.3927982], [6.5910088, 3.388622], [6.5889617, 3.3946604], [6.5941202, 3.3933465], [6.5918969, 3.3954074], [6.5946665, 3.3924863], [6.5952573, 3.3923041], [6.6147269, 3.2981318], [6.6195718, 3.3014989], [6.6196305, 3.3018878], [6.599178, 3.300284], [6.6026671, 3.3072323], [6.6021427, 3.3074037], [6.6042067, 3.3100103], [6.6108781, 3.2955189], [6.6101179, 3.2945081], [6.6101004, 3.2944202], [6.610351, 3.2957534], [6.6115867, 3.2959485], [6.6098889, 3.2938139], [6.6111677, 3.2960911], [6.611981, 3.2957901], [6.6119941, 3.2958795], [6.6112007, 3.2962582], [6.6105122, 3.2930274], [6.6104969, 3.2929683], [6.4418865, 3.4184241], [6.4431085, 3.4217], [6.4418974, 3.4180345], [6.4427083, 3.4217071], [6.4426895, 3.4206753], [6.44199, 3.419127], [6.4474586, 3.4283728], [6.4416507, 3.4166803], [6.4482086, 3.4304105], [6.4416459, 3.4166297], [6.4490008, 3.4308057], [6.4436873, 3.4149216], [6.4348625, 3.4313452], [6.441885, 3.4126329], [6.4325267, 3.4283626], [6.431199, 3.4200346], [6.4309816, 3.4221346], [6.4312831, 3.4323536], [6.4313435, 3.4279385], [6.4563818, 3.4182297], [6.5031564, 3.5828228], [6.4980053, 3.5862173], [6.5003781, 3.5970355], [6.5003762, 3.5970195], [6.5003941, 3.5970824], [6.5004153, 3.5971555], [6.5006279, 3.5973304], [6.4999803, 3.5966554], [6.5000521, 3.5964716], [6.5000573, 3.5960365], [6.5008082, 3.5959996], [6.4998496, 3.5955115], [6.5010358, 3.5989083], [6.5009616, 3.59898], [6.4997657, 3.594804], [6.4979714, 3.5981276], [6.4999099, 3.5944198], [6.5018048, 3.5996638], [6.5029082, 3.5986839], [6.498327, 3.352799], [6.4924597, 3.3551689], [6.4869819, 3.3524852], [6.4904604, 3.3511036], [6.4889433, 3.3601123], [6.4901775, 3.3556645], [6.4901497, 3.3558588], [6.4901576, 3.3552409], [6.4896675, 3.3562046], [6.4896737, 3.3571936], [6.4921702, 3.3564155], [6.4920611, 3.3568537], [6.488007, 3.359603], [6.4958957, 3.3547507], [6.4946327, 3.3517336], [6.4896107, 3.3485571], [6.5022024, 3.3512123], [6.5049539, 3.3552254], [6.497406, 3.3598934], [6.5067514, 3.3544832], [6.585671, 3.3538938], [6.5801801, 3.3587844], [6.5843045, 3.3569304], [6.581519, 3.3446125], [6.5850763, 3.3519519], [6.5852682, 3.352248], [6.5772687, 3.3564703], [6.5868115, 3.3551243], [6.5804453, 3.3585313], [6.5806404, 3.3588909], [6.5748713, 3.357332], [6.586885, 3.357876], [6.5894001, 3.3395863], [6.5728823, 3.3588576], [6.5938561, 3.3515935], [6.5741214, 3.3601794], [6.5736548, 3.3607677], [6.5953698, 3.3452037], [6.574747, 3.3619285], [6.5849127, 3.3334825], [6.5521287, 3.3923225], [6.5480509, 3.3930387], [6.5522428, 3.3909663], [6.5549552, 3.3894443], [6.5546515, 3.3872349], [6.5482531, 3.3892495], [6.5483978, 3.3882577], [6.5420929, 3.3862623], [6.5484118, 3.3786352], [6.5427307, 3.3770604], [6.5533136, 3.391119], [6.5528236, 3.3911942], [6.5535253, 3.3909062], [6.553719, 3.3904797], [6.5539142, 3.3906091], [6.5542784, 3.3910933], [6.5537625, 3.3902197], [6.5520173, 3.391805], [6.5539807, 3.3903137], [6.5539074, 3.3901991], [6.5062392, 3.3742725], [6.5060146, 3.3766719], [6.5095924, 3.3738562], [6.5066821, 3.3787599], [6.502986, 3.3762485], [6.511385, 3.37762], [6.5088211, 3.3681878], [6.5037155, 3.3836171], [6.504728, 3.3870355], [6.5097241, 3.3635401], [6.5182773, 3.3682634], [6.5188961, 3.3688426], [6.511243, 3.3882267], [6.5196775, 3.3698526], [6.516491, 3.385815], [6.5127598, 3.358726], [6.522708, 3.3674809], [6.5063751, 3.3751607], [6.5063751, 3.3751607], [6.507087, 3.37528], [6.5170096, 3.3073996], [6.5395643, 3.308599], [6.5273877, 3.2952105], [6.5433709, 3.3198373], [6.5248766, 3.3218648], [6.5318377, 3.3071519], [6.5327927, 3.3076897], [6.5336199, 3.3067366], [6.5326947, 3.3077484], [6.5318873, 3.3079244], [6.5317614, 3.308036], [6.5320126, 3.3082248], [6.5310804, 3.3079679], [6.5310682, 3.3082164], [6.5309694, 3.3082064], [6.5350819, 3.3066571], [6.5306406, 3.3082406], [6.5302711, 3.3076445], [6.5354172, 3.3061023], [6.5305644, 3.3088137], [6.6376317, 3.2845653], [6.6346042, 3.3016215], [6.6272716, 3.2800375], [6.6433243, 3.2884048], [6.6403187, 3.284865], [6.6400108, 3.28502], [6.6427472, 3.2899728], [6.6397865, 3.2838104], [6.6464438, 3.2853319], [6.6450494, 3.2911586], [6.6465383, 3.2853545], [6.6455375, 3.2931355], [6.6455518, 3.2931611], [6.6455518, 3.2931611], [6.6488309, 3.2877351], [6.6458278, 3.2933714], [6.6379212, 3.2936165], [6.6404044, 3.2949739], [6.4406807, 3.4635016], [6.4472154, 3.4549177], [6.4481414, 3.4801974], [6.4458621, 3.4708508], [6.4475008, 3.4716924], [6.4443677, 3.4643494], [6.4426847, 3.4652541], [6.4424071, 3.4654221], [6.4427117, 3.465824], [6.4460426, 3.4661097], [6.446625, 3.4600267], [6.4440411, 3.4588902], [6.4382661, 3.4633537], [6.4460005, 3.4701122], [6.4475674, 3.4693948], [6.4456169, 3.4713207], [6.4455691, 3.4571713], [6.4467664, 3.4722621], [6.4475835, 3.4720888], [6.440137, 3.4555492], [6.4396582, 3.5111989], [6.4427626, 3.5083482], [6.4373346, 3.5081062], [6.4375187, 3.5071167], [6.43614, 3.50159], [6.4346103, 3.500175], [6.440243, 3.5161308], [6.4390756, 3.5165938], [6.4290499, 3.5021913], [6.4347884, 3.493475], [6.4345124, 3.4959715], [6.4459307, 3.5169497], [6.4355104, 3.4933637], [6.4451591, 3.5203168], [6.4297954, 3.5222027], [6.4419831, 3.4906628], [6.4374411, 3.5078111], [6.4377732, 3.5079286], [6.4378978, 3.5082269], [6.4380717, 3.5078867], [6.467929, 3.2934167], [6.4691584, 3.2713643], [6.4766057, 3.2753179], [6.4684188, 3.2975827], [6.4664428, 3.2838087], [6.4664195, 3.2835278], [6.4664193, 3.2835275], [6.4654452, 3.2850398], [6.4677338, 3.2851517], [6.4669774, 3.2859998], [6.4645398, 3.2854902], [6.4685534, 3.2852132], [6.4683129, 3.2857651], [6.4641932, 3.285372], [6.4638182, 3.2826985], [6.4683605, 3.281689], [6.4650819, 3.2812689], [6.4648704, 3.2813535], [6.46889, 3.28229], [6.4481414, 3.4801974], [6.4347884, 3.493475], [6.445715, 3.4812215], [6.442841, 3.474161], [6.4464247, 3.478574], [6.4419831, 3.4906628], [6.4355104, 3.4933637], [6.445632, 3.474192], [6.4476988, 3.4752576], [6.4481213, 3.4754877], [6.4327041, 3.4700781], [6.4456169, 3.4713207], [6.4467664, 3.4722621], [6.4458621, 3.4708508], [6.4476105, 3.4729772], [6.4475008, 3.4716924], [6.4475835, 3.4720888], [6.4460005, 3.4701122], [6.4345124, 3.4959715], [6.4326418, 3.4669972], [6.5521287, 3.3923225], [6.5420929, 3.3862623], [6.5480509, 3.3930387], [6.5483978, 3.3882577], [6.5482531, 3.3892495], [6.5522428, 3.3909663], [6.5546515, 3.3872349], [6.5549552, 3.3894443], [6.5484118, 3.3786352], [6.5427307, 3.3770604], [6.5526784, 3.3721101], [6.5484123, 3.3875739], [6.5483845, 3.3873909], [6.5484318, 3.3877396], [6.5484326, 3.3872797], [6.5494821, 3.3875941], [6.5473084, 3.3865454], [6.5482531, 3.3892495], [6.5469517, 3.3858091], [6.5472135, 3.3854243], [6.6900216, 3.5126977], [6.6942717, 3.5097283], [6.6956821, 3.5118615], [6.6958065, 3.5124451], [6.695843, 3.5120537], [6.6830844, 3.5109697], [6.6827171, 3.5112729], [6.6866973, 3.5054371], [6.6866417, 3.5053881], [6.6866417, 3.5053881], [6.6866417, 3.5053881], [6.6821672, 3.5113542], [6.6977251, 3.5119394], [6.6977925, 3.5116342], [6.6980128, 3.5115601], [6.6866737, 3.5042508], [6.6865458, 3.5042723], [6.6988667, 3.5118079], [6.687722, 3.5223216], [6.6999984, 3.5132849], [6.5901433, 3.2868551], [6.5739575, 3.2907864], [6.59584, 3.282264], [6.5714764, 3.2915888], [6.583283, 3.2832665], [6.5833516, 3.2832238], [6.5827501, 3.283818], [6.5837773, 3.2835211], [6.5835759, 3.2847322], [6.584637, 3.283894], [6.5854359, 3.2840374], [6.5852273, 3.2847353], [6.585247, 3.2847939], [6.5829907, 3.2861693], [6.5811899, 3.285311], [6.586136, 3.2856023], [6.5855806, 3.286515], [6.5793591, 3.2837454], [6.5795391, 3.2854372], [6.5793467, 3.2850271], [6.6142798, 3.3560412], [6.5973997, 3.3548715], [6.6036982, 3.3517135], [6.6146275, 3.3581884], [6.6143384, 3.3578021], [6.6146934, 3.3582947], [6.6140589, 3.3565981], [6.6164287, 3.3580702], [6.6111777, 3.3570996], [6.6090035, 3.3570205], [6.6053427, 3.3537738], [6.6050101, 3.3538784], [6.6059094, 3.3510407], [6.6115611, 3.3472651], [6.6065171, 3.3491198], [6.6028319, 3.356615], [6.6053903, 3.3506393], [6.607647, 3.348523], [6.60822, 3.3477395], [6.6098475, 3.3465097], [6.6042723, 3.4931374], [6.5971297, 3.4902418], [6.5972359, 3.5052933], [6.603048, 3.4887465], [6.6016618, 3.4893238], [6.6034161, 3.4896859], [6.6034724, 3.4897165], [6.603003, 3.489965], [6.601682, 3.4903712], [6.6031379, 3.4907944], [6.5997839, 3.488921], [6.6023559, 3.4911736], [6.6023559, 3.4911736], [6.602356, 3.491174], [6.6022418, 3.4913687], [6.6032679, 3.4914559], [6.6020155, 3.4915085], [6.6014067, 3.4917317], [6.6012596, 3.491939], [6.6033999, 3.4921791], [6.5575184, 3.2702371], [6.550447, 3.2781595], [6.5554773, 3.2650508], [6.5547739, 3.269517], [6.545727, 3.2657373], [6.5571294, 3.2699058], [6.557655, 3.2702696], [6.5574257, 3.2692932], [6.5562961, 3.2700652], [6.5563079, 3.2710205], [6.5587557, 3.2702001], [6.5554885, 3.2693819], [6.5550175, 3.2694747], [6.5550175, 3.2694747], [6.5550175, 3.2694747], [6.5549671, 3.2696585], [6.5549671, 3.2696585], [6.5549671, 3.2696585], [6.5549671, 3.2696585], [6.5549671, 3.2696585], [6.546845, 3.3623704], [6.5457324, 3.3596757], [6.5488971, 3.3607108], [6.5479956, 3.3616517], [6.5476921, 3.3607105], [6.5384657, 3.3662179], [6.5506365, 3.3621621], [6.5371971, 3.361071], [6.5526784, 3.3721101], [6.5566885, 3.3682218], [6.5577039, 3.3711109], [6.5427307, 3.3770604], [6.5349509, 3.3726794], [6.5607853, 3.369635], [6.5484118, 3.3786352], [6.5558824, 3.3470683], [6.5292924, 3.3593944], [6.5459114, 3.3624454], [6.5459114, 3.3624454], [6.5462439, 3.3610294], [6.59584, 3.282264], [6.6099601, 3.2563208], [6.6049734, 3.2729572], [6.6044948, 3.2732728], [6.6058675, 3.2719096], [6.6065037, 3.272939], [6.6065037, 3.272939], [6.6037408, 3.271878], [6.603897, 3.2716266], [6.6036695, 3.2717438], [6.6032818, 3.2711468], [6.6040939, 3.2706191], [6.6072659, 3.2741005], [6.6028597, 3.2745512], [6.6040092, 3.2703766], [6.6051855, 3.2758708], [6.6051708, 3.2761638], [6.6083486, 3.2727914], [6.6083756, 3.2715925], [6.6018739, 3.2757207], [6.5170096, 3.3073996], [6.5248766, 3.3218648], [6.5226581, 3.3387172], [6.5252273, 3.3220224], [6.5250844, 3.3220372], [6.5250466, 3.3220371], [6.5250466, 3.3220371], [6.5258805, 3.3222918], [6.52457, 3.32207], [6.5245494, 3.3220122], [6.5259429, 3.3220711], [6.5244246, 3.321691], [6.5239008, 3.322515], [6.5266417, 3.3223966], [6.5263919, 3.3211824], [6.5239332, 3.3229352], [6.5255196, 3.3236582], [6.5242176, 3.3234734], [6.5263663, 3.3206766], [6.5231665, 3.322081], [6.6558718, 3.4760952], [6.6557379, 3.4765972], [6.657261, 3.4764963], [6.6596403, 3.4762181], [6.653174, 3.474405], [6.661533, 3.4748257], [6.6486693, 3.4775247], [6.6514541, 3.4828471], [6.6640856, 3.4722686], [6.6472792, 3.4780535], [6.6642397, 3.4816509], [6.6507065, 3.4838971], [6.6466351, 3.478953], [6.6484534, 3.4826736], [6.6559351, 3.4873335], [6.6449069, 3.4799282], [6.6455333, 3.4829559], [6.6649705, 3.466079], [6.642208, 3.4768583], [6.5182773, 3.3682634], [6.527808, 3.3748148], [6.5188961, 3.3688426], [6.5196775, 3.3698526], [6.522708, 3.3674809], [6.5275694, 3.3626318], [6.5088211, 3.3681878], [6.5097241, 3.3635401], [6.5127598, 3.358726], [6.5095924, 3.3738562], [6.511385, 3.37762], [6.5124746, 3.3572962], [6.5292924, 3.3593944], [6.5062392, 3.3742725], [6.5274265, 3.3807054], [6.5060146, 3.3766719], [6.5066821, 3.3787599], [6.5349509, 3.3726794], [6.502986, 3.3762485], [6.5067514, 3.3544832], [6.585671, 3.3538938], [6.5973997, 3.3548715], [6.5801801, 3.3587844], [6.5843045, 3.3569304], [6.5868115, 3.3551243], [6.5852682, 3.352248], [6.5850763, 3.3519519], [6.586885, 3.357876], [6.5804453, 3.3585313], [6.5806404, 3.3588909], [6.5916537, 3.3598323], [6.5923436, 3.3591456], [6.5938561, 3.3515935], [6.5886434, 3.3623259], [6.5899875, 3.3619236], [6.5924991, 3.360691], [6.5958004, 3.3510533], [6.5772687, 3.3564703], [6.595905, 3.3525643], [6.5965155, 3.3545419], [6.6142798, 3.3560412], [6.6098683, 3.3718773], [6.6090821, 3.3710047], [6.6136504, 3.3723908], [6.6146275, 3.3581884], [6.6033377, 3.365352], [6.600456, 3.3657953], [6.618729, 3.3765624], [6.6146934, 3.3582947], [6.6143384, 3.3578021], [6.6164287, 3.3580702], [6.6111777, 3.3570996], [6.6090035, 3.3570205], [6.6140589, 3.3565981], [6.6263971, 3.3650032], [6.6028319, 3.356615], [6.6024936, 3.3825929], [6.6268569, 3.3630345], [6.6053427, 3.3537738], [6.6050101, 3.3538784], [6.4429721, 3.3699983], [6.4385286, 3.3642731], [6.4394132, 3.3642898], [6.4386852, 3.3766552], [6.4391392, 3.385458], [6.4412316, 3.3779723], [6.4365223, 3.3696], [6.4385771, 3.3705276], [6.4379151, 3.369569], [6.4385827, 3.3698971], [6.4424861, 3.3732205], [6.4422559, 3.3722031], [6.441481, 3.371112], [6.4428051, 3.3728117], [6.440013, 3.3695376], [6.4427457, 3.3722263], [6.4429719, 3.3715218], [6.4407887, 3.3688847], [6.4427543, 3.3702254], [6.444779, 3.372837], [6.5972205, 3.3355806], [6.5850193, 3.3334775], [6.5849127, 3.3334825], [6.5848295, 3.3333806], [6.5959718, 3.3360504], [6.5894001, 3.3395863], [6.5962155, 3.3377122], [6.5988712, 3.3355007], [6.6020123, 3.3397972], [6.6018055, 3.3378281], [6.5953698, 3.3452037], [6.5959427, 3.3449875], [6.581519, 3.3446125], [6.5997471, 3.3449642], [6.5898551, 3.3317663], [6.5891447, 3.3315843], [6.5882646, 3.3342767], [6.5884681, 3.3348212], [6.5881082, 3.3346846], [6.5891647, 3.3358221], [6.5848295, 3.3333806], [6.5849127, 3.3334825], [6.5850193, 3.3334775], [6.5681353, 3.3325317], [6.578636, 3.321704], [6.5789641, 3.3209149], [6.5781442, 3.3211546], [6.578218, 3.320554], [6.5818185, 3.3211348], [6.5770735, 3.3214049], [6.5761226, 3.3256301], [6.5730787, 3.3246441], [6.5713355, 3.323358], [6.584518, 3.3326159], [6.5847411, 3.3328104], [6.5846621, 3.3329277], [6.5846966, 3.3330331], [6.5845009, 3.333345], [6.5847219, 3.3335101], [6.5849361, 3.3334726], [6.6342898, 3.3526399], [6.6301847, 3.3382135], [6.634115, 3.3329859], [6.6274808, 3.3361986], [6.6316411, 3.339707], [6.6278448, 3.3244101], [6.6305114, 3.3242118], [6.6261427, 3.3535281], [6.6314768, 3.3537184], [6.6333784, 3.3535189], [6.633575, 3.3536033], [6.6446892, 3.3432434], [6.6288056, 3.3379853], [6.6296729, 3.3377298], [6.6304785, 3.3382996], [6.6302975, 3.3389447], [6.6305248, 3.3391162], [6.6269595, 3.3368067], [6.6273896, 3.3360464], [6.5973997, 3.3548715], [6.6036982, 3.3517135], [6.6020123, 3.3397972], [6.5972205, 3.3355806], [6.6018055, 3.3378281], [6.5988712, 3.3355007], [6.5962155, 3.3377122], [6.5997471, 3.3449642], [6.5959718, 3.3360504], [6.6075525, 3.3409722], [6.5959427, 3.3449875], [6.5953698, 3.3452037], [6.6047492, 3.3482342], [6.6065171, 3.3491198], [6.60822, 3.3477395], [6.6098475, 3.3465097], [6.6001697, 3.3504254], [6.607647, 3.348523], [6.5894001, 3.3395863], [6.6053903, 3.3506393], [6.5744304, 3.3939012], [6.5753283, 3.3910974], [6.5751661, 3.3923088], [6.573375, 3.390848], [6.5721812, 3.3969927], [6.5829477, 3.3881234], [6.583219, 3.3846542], [6.5868658, 3.3987458], [6.5876364, 3.3975303], [6.5702391, 3.3739254], [6.5755665, 3.3906233], [6.5755665, 3.3906233], [6.5758801, 3.3909782], [6.5758801, 3.3909782], [6.5758802, 3.3909782], [6.5758687, 3.3907106], [6.5758912, 3.3906621], [6.5749418, 3.3917493], [6.5749418, 3.3917493], [6.5756218, 3.3903833], [6.498327, 3.352799], [6.5090326, 3.3465202], [6.5067514, 3.3544832], [6.5098187, 3.3486949], [6.5060822, 3.3509206], [6.5022024, 3.3512123], [6.5124746, 3.3572962], [6.5049539, 3.3552254], [6.5127598, 3.358726], [6.5047934, 3.3457767], [6.5097241, 3.3635401], [6.4958957, 3.3547507], [6.5086325, 3.3383015], [6.4946327, 3.3517336], [6.5088211, 3.3681878], [6.497406, 3.3598934], [6.4924597, 3.3551689], [6.5182773, 3.3682634], [6.5098876, 3.3530018], [6.5170096, 3.3073996], [6.5395643, 3.308599], [6.5248766, 3.3218648], [6.5273877, 3.2952105], [6.5433709, 3.3198373], [6.529688, 3.3120504], [6.5299824, 3.3099368], [6.5289018, 3.3095142], [6.5305149, 3.310192], [6.5303574, 3.3128027], [6.5308392, 3.3125908], [6.5304701, 3.3093773], [6.530765, 3.31303], [6.5293725, 3.3087235], [6.5293814, 3.3085121], [6.5305644, 3.3088137], [6.530053, 3.3084109], [6.5298079, 3.3083135], [6.5306406, 3.3082406], [6.5321518, 3.309735], [6.5170096, 3.3073996], [6.5248766, 3.3218648], [6.5395643, 3.308599], [6.5433709, 3.3198373], [6.5276553, 3.3177185], [6.5264302, 3.3175473], [6.5254354, 3.3175913], [6.5290969, 3.3198833], [6.5263663, 3.3206766], [6.5292932, 3.3206274], [6.5287882, 3.3209707], [6.5263919, 3.3211824], [6.523841, 3.3157968], [6.530404, 3.3207729], [6.5300106, 3.3214843], [6.5321579, 3.3162904], [6.5259429, 3.3220711], [6.5302379, 3.3216938], [6.5266417, 3.3223966], [6.6342898, 3.3526399], [6.6377498, 3.3554562], [6.6399638, 3.3635743], [6.633575, 3.3536033], [6.6333784, 3.3535189], [6.6314768, 3.3537184], [6.6268569, 3.3630345], [6.6263971, 3.3650032], [6.6261427, 3.3535281], [6.6351053, 3.3749812], [6.6351301, 3.3602677], [6.6351301, 3.3602677], [6.6357413, 3.3598507], [6.6346858, 3.3591738], [6.6340783, 3.3618792], [6.6351017, 3.3581561], [6.6331303, 3.3611115], [6.635226, 3.3624698], [6.6362049, 3.3579739], [6.636341, 3.3574923], [6.430767, 3.40751], [6.4267687, 3.4169328], [6.4268691, 3.4388142], [6.4312831, 3.4323536], [6.4290534, 3.419164], [6.431199, 3.4200346], [6.4298715, 3.42097], [6.4254825, 3.4224283], [6.4263873, 3.4154382], [6.4348625, 3.4313452], [6.4309816, 3.4221346], [6.4284244, 3.4267632], [6.4315746, 3.4296266], [6.4265524, 3.4141053], [6.4274448, 3.4216146], [6.4293995, 3.4224695], [6.4272651, 3.4243113], [6.427465, 3.4253767], [6.4306175, 3.4213506], [6.425988, 3.424963], [6.585671, 3.3538938], [6.5973997, 3.3548715], [6.6036982, 3.3517135], [6.5843045, 3.3569304], [6.5801801, 3.3587844], [6.600456, 3.3657953], [6.5916537, 3.3598323], [6.5923436, 3.3591456], [6.5924991, 3.360691], [6.5899875, 3.3619236], [6.5886434, 3.3623259], [6.586885, 3.357876], [6.5868115, 3.3551243], [6.5965155, 3.3545419], [6.5958004, 3.3510533], [6.595905, 3.3525643], [6.5938561, 3.3515935], [6.5852682, 3.352248], [6.5850763, 3.3519519], [6.5982027, 3.3516473], [6.5540205, 3.327459], [6.5493546, 3.3318786], [6.5516577, 3.3274178], [6.5415914, 3.3336987], [6.5535131, 3.3253389], [6.5433709, 3.3198373], [6.5558824, 3.3470683], [6.5482366, 3.3321163], [6.548384, 3.331978], [6.5483323, 3.3319354], [6.5477943, 3.3325813], [6.5474942, 3.3321412], [6.5476773, 3.3315035], [6.5488177, 3.3312104], [6.5493828, 3.3317871], [6.5472564, 3.3327851], [6.5494644, 3.331768], [6.5472394, 3.3328616], [6.5495963, 3.332298], [6.549635, 3.33252], [6.5349509, 3.3726794], [6.546845, 3.3623704], [6.5457324, 3.3596757], [6.5427307, 3.3770604], [6.5384657, 3.3662179], [6.5488971, 3.3607108], [6.5371971, 3.361071], [6.5479956, 3.3616517], [6.5476921, 3.3607105], [6.5506365, 3.3621621], [6.5526784, 3.3721101], [6.5484118, 3.3786352], [6.5292924, 3.3593944], [6.5275694, 3.3626318], [6.527808, 3.3748148], [6.5566885, 3.3682218], [6.5577039, 3.3711109], [6.5414785, 3.3678081], [6.5410018, 3.3673612], [6.5409331, 3.3684194], [6.4698962, 3.6406232], [6.4683192, 3.639212], [6.4732435, 3.6281009], [6.4715489, 3.6353922], [6.4716639, 3.6349644], [6.4740192, 3.6339023], [6.4727145, 3.6376059], [6.4718435, 3.6342243], [6.4715162, 3.6346583], [6.4712329, 3.6352911], [6.4716255, 3.6343119], [6.4712848, 3.6366648], [6.4719992, 3.633627], [6.4709167, 3.6349838], [6.4721505, 3.6333981], [6.4710664, 3.63729], [6.4705367, 3.6350901], [6.4703943, 3.6375141], [6.4696987, 3.6350602], [6.4704483, 3.6332458], [6.5182773, 3.3682634], [6.5062392, 3.3742725], [6.5088211, 3.3681878], [6.5097241, 3.3635401], [6.5095924, 3.3738562], [6.5060146, 3.3766719], [6.5188961, 3.3688426], [6.511385, 3.37762], [6.502986, 3.3762485], [6.5127598, 3.358726], [6.5066821, 3.3787599], [6.5196775, 3.3698526], [6.5124746, 3.3572962], [6.5067514, 3.3544832], [6.5049539, 3.3552254], [6.522708, 3.3674809], [6.5037155, 3.3836171], [6.497406, 3.3598934], [6.5060822, 3.3509206], [6.5084796, 3.3686069], [6.4396582, 3.5111989], [6.4427626, 3.5083482], [6.4347884, 3.493475], [6.4355104, 3.4933637], [6.4373346, 3.5081062], [6.4346103, 3.500175], [6.4345124, 3.4959715], [6.43614, 3.50159], [6.4290499, 3.5021913], [6.4375187, 3.5071167], [6.4419831, 3.4906628], [6.4225281, 3.4878867], [6.4358941, 3.4971078], [6.434177, 3.4997926], [6.4349449, 3.4957164], [6.4353631, 3.4956631], [6.4338869, 3.495605], [6.4339306, 3.4948984], [6.4377054, 3.5016081], [6.4311958, 3.5000123], [6.4688629, 3.704373], [6.4688482, 3.7043553], [6.4685924, 3.7036585], [6.4685924, 3.7036585], [6.4685924, 3.7036585], [6.4696481, 3.7047139], [6.4686775, 3.7055855], [6.4688584, 3.7058757], [6.4684497, 3.7027561], [6.4677832, 3.7030298], [6.4688022, 3.7063105], [6.4675517, 3.70587], [6.4709279, 3.7050909], [6.4682399, 3.7018098], [6.4714591, 3.7031505], [6.4711283, 3.7018835], [6.4656195, 3.7052798], [6.465262, 3.7051199], [6.465262, 3.7051199], [6.465262, 3.7051199]],
+                {
+  "minOpacity": 0.5,
+  "maxZoom": 18,
+  "radius": 15,
+  "blur": 10,
+}
+            );
+        
+    
+            heat_map_7014d9af3695790098f66e868d6f9fc6.addTo(map_f3802bf56901114e9db707a4941773ed);
+        
+</script>
+</html>
