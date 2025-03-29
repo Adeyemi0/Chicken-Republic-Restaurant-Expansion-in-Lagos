@@ -2,7 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 def main():
-    st.title("Chicken Republic Map in Streamlit")
+    st.title("Chicken Republic Spatial Distribution")
 
     # Read the HTML file
     with open("Spatial Distribution of Chicken Republic Branches and Nearby Amenities in Lagos.html", "r", encoding="utf-8") as f:
